@@ -1,11 +1,10 @@
-import {Routes, Route} from 'react-router-dom';
-import React, { useState } from 'react';
-import NavbarComponent from './components/NavbarComponent';
-import HomePage from './pages/HomePage';
-import VignerePage from './pages/VigenerePage';
-import ExtendedVignerePage from './pages/ExtendedVignerePage';
-import PlayfairPage from './pages/PlayfairPage';
-import ProductPage from './pages/ProductPage';
+import { Routes, Route } from "react-router-dom";
+import NavbarComponent from "./components/NavbarComponent";
+import HomePage from "./pages/HomePage";
+import VignerePage from "./pages/VigenerePage";
+import ExtendedVignerePage from "./pages/ExtendedVignerePage";
+import PlayfairPage from "./pages/PlayfairPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -21,6 +20,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
