@@ -1,0 +1,118 @@
+*{
+    font-family: "Popins", sans-serif;
+}
+
+:root{
+    --primary-color: #f6f8fd;
+    --secondary-color: #dc3545;
+    --color-text: #231942;
+    --navbar-color: #ffffff;
+    --navbar-color-text: #000000;
+}
+
+/*STYLE NAVBAR*/
+
+.navbar{
+    position: fixed;
+    padding: 15px 60px 15px 60px;
+    width: 100%;
+}
+
+.navbar .nav-link{
+    padding: 5px 0px 5px 10px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navbar .nav-link:hover{
+    color: var(--secondary-color);
+}
+
+.navbar .nav-link.active {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+/*STYLE NAVBAR*/
+
+/*STYLE HEADER*/
+header{
+    background: #c6ffdd; 
+    background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
+    background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);
+}
+
+.homepage .header-box h1{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.homepage .header-box p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    display: flex;
+    text-align: justify;
+}
+.homepage .header-box .p2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.homepage .header-box img{
+    width: 100%;
+
+}
+/*STYLE HEADER*/
+
+
+/*STYLE CONTENT*/
+.homepage .download{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 475px;
+    margin-top: -50px;
+
+}
+.col-spacing{
+    padding: 60px;
+}
+
+.input-group, .button-group, .result-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label, .button-group button, .result-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group textarea, .input-group input, .button-group button, .result-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  .button-group button {
+    cursor: pointer;
+    background-color: #eb8055;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .button-group button:hover {
+    background-color: #e13434;
+  }
+  
+  .button-group button:active {
+    background-color: #004080;
+  }
+/*STYLE INPUT*/
