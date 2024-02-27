@@ -7,17 +7,18 @@ const ExtendedVignerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
+  const [encryptedText, setencryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
+  const extendedVigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
-    const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini
-    setCiphertext(encryptedText);
+    const encryptedText = extendedVigenere.encrypt(plaintext); //tinggal ganti metode nya disini
+    setencryptedText(encryptedText);
   };
 
   const decrypt = () => {
-    const decryptedText = vigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
+    const decryptedText = extendedVigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
     setDecryptedText(decryptedText);
   };
 
@@ -28,14 +29,27 @@ const ExtendedVignerePage = () => {
           <Row className="header-box d-flex align-items-center">
             <Col className="col-spacing">
               <div className="">
-                <h1>Extended Vigenere Cipher</h1>
+              <h1>Extended Vigenere Cipher</h1>
                 <p>
                   Metode menyandikan teks (256 karakter ASCII) dengan
                   menggunakan deretan sandi Caesar berdasarkan huruf-huruf pada
                   kata kunci.
                 </p>
               </div>
-              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
+              <div className='reader'>
+                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+              </div>
+              <div className="input-group">
+                <label htmlFor="key">Key:</label>
+                <textarea
+                  id="key"
+                  value={key}
+                  onChange={(e) =>
+                    setKey(e.target.value)
+                  }
+                  rows={1} // Set the number of rows for the textarea
+                />
+              </div>
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -48,12 +62,12 @@ const ExtendedVignerePage = () => {
                 />
               </div>
               <div className="input-group">
-                <label htmlFor="key">Key:</label>
+                <label htmlFor="encryptedPlainText">Encrypted Text:</label>
                 <textarea
-                  id="key"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value)}
-                  rows={8} // Set the number of rows for the textarea
+                  id="encryptedPlainTextt"
+                  value={encryptedText}
+                  readOnly
+                  rows={8}
                 />
               </div>
               <div className="button-group">
@@ -62,16 +76,16 @@ const ExtendedVignerePage = () => {
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
-                <label htmlFor="ciphertext">Ciphertext (Base64):</label>
+                <label htmlFor="ciphertext">Ciphertext:</label>
                 <textarea
                   id="ciphertext"
                   value={ciphertext}
-                  readOnly
+                  onChange={(e) => setCiphertext(e.target.value)}
                   rows={8}
                 />
               </div>
               <div className="input-group">
-                <label htmlFor="decryptedText">Decrypted Text:</label>
+                <label htmlFor="decryptedText">Decrypted Ciphertext:</label>
                 <textarea
                   id="decryptedText"
                   value={decryptedText}
@@ -85,7 +99,6 @@ const ExtendedVignerePage = () => {
             </Col>
           </Row>
           <Row className="download d-flex align-items-center">
-            <img src={decryptedText} alt="" />
             <p>Download Cipher Text File Disini.</p>
           </Row>
         </Container>

@@ -1,4 +1,4 @@
-function ReaderFile({ onlyTxt = true, setPlaintext }) {
+function ReaderFile({ onlyTxt = true, setPlaintext, setCiphertext }) {
   function onChange(event) {
     var file = event.target.files[0];
     if (!file) return; // Ensure a file is selected
@@ -19,6 +19,7 @@ function ReaderFile({ onlyTxt = true, setPlaintext }) {
     reader.onload = (event) => {
       const fileContent = event.target.result; // File content as string
       setPlaintext(fileContent); // Do something with the string
+      setCiphertext(fileContent);
     };
 
     reader.onerror = (error) => {
