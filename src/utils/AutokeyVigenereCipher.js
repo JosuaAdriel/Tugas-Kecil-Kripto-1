@@ -45,10 +45,4 @@ class AutokeyVigenereCipher {
   }
 }
 
-// Example usage:
-const keyword = "INDO";
-const cipher = new AutokeyVigenereCipher(keyword);
-const plaintext = "negarapenghasilminyakmentahdidunia";
-const encryptedText = cipher.encrypt(plaintext);
-console.log("Encrypted:", encryptedText);
-console.log("Decrypted:", cipher.decrypt(encryptedText));
+export default AutokeyVigenereCipher;
