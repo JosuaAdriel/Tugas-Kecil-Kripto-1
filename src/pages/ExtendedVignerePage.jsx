@@ -44,7 +44,7 @@ const ExtendedVignerePage = () => {
                   id="plaintext"
                   value={plaintext}
                   onChange={(e) => setPlaintext(e.target.value)}
-                  rows={10} // Set the number of rows for the textarea
+                  rows={8} // Set the number of rows for the textarea
                 />
               </div>
               <div className="input-group">
@@ -53,7 +53,7 @@ const ExtendedVignerePage = () => {
                   id="key"
                   value={key}
                   onChange={(e) => setKey(e.target.value)}
-                  rows={10} // Set the number of rows for the textarea
+                  rows={8} // Set the number of rows for the textarea
                 />
               </div>
               <div className="button-group">
@@ -67,7 +67,7 @@ const ExtendedVignerePage = () => {
                   id="ciphertext"
                   value={ciphertext}
                   readOnly
-                  rows={10}
+                  rows={8}
                 />
               </div>
               <div className="input-group">
@@ -76,7 +76,7 @@ const ExtendedVignerePage = () => {
                   id="decryptedText"
                   value={decryptedText}
                   readOnly
-                  rows={10}
+                  rows={8}
                 />
               </div>
               <div className="button-group">
