@@ -1,6 +1,6 @@
 class VigenereCipher {
   constructor(key) {
-    this.key = key; // Convert key to uppercase
+    this.key = key.toUpperCase(); // Convert key to uppercase
   }
 
   encrypt(plaintext) {
