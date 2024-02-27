@@ -28,11 +28,13 @@ function ReaderFile({ onlyTxt = true, setPlaintext }) {
   return (
     <div className="">
       <label htmlFor="">Upload File</label>
-      {onlyTxt ? (
-        <input accept=".txt" onChange={(e) => onChange(e)} type="file" />
-      ) : (
-        <input onChange={(e) => onChange(e)} type="file" />
-      )}
+      <div className="">
+        {onlyTxt ? (
+          <input accept=".txt" onChange={(e) => onChange(e)} type="file" />
+        ) : (
+          <input onChange={(e) => onChange(e)} type="file" />
+        )}
+      </div>
     </div>
   );
 }

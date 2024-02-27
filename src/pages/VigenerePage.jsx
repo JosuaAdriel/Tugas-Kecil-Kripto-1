@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import Vigenere from "../utils/Vigenere.js";
+import VigenereCipher from "../utils/VigenereCipher.js";
 import ReaderFile from "../components/ReaderFile.jsx";
 
 const VigenerePage = () => {
@@ -9,7 +9,7 @@ const VigenerePage = () => {
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new Vigenere(key);
+  const vigenere = new VigenereCipher(key);
 
   const encrypt = () => {
     const encryptedText = vigenere.encrypt(plaintext);

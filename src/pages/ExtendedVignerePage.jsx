@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import ExtendedVigenere from "../utils/ExtendedVigenere.js";
+import ExtendedVigenereCipher from "../utils/ExtendedVigenereCipher.js";
 import ReaderFile from "../components/ReaderFile.jsx";
 
 const ExtendedVignerePage = () => {
@@ -9,7 +9,7 @@ const ExtendedVignerePage = () => {
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new ExtendedVigenere(key); //tinggal ganti metode nya disini
+  const vigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
     const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini

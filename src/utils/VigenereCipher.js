@@ -1,4 +1,4 @@
-class Vigenere {
+class VigenereCipher {
   constructor(key) {
     this.key = key; // Convert key to uppercase
   }
@@ -42,4 +42,4 @@ class Vigenere {
   }
 }
 
-export default Vigenere;
+export default VigenereCipher;

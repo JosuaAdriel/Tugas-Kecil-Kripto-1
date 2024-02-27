@@ -1,21 +1,23 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import Vigenere from "../utils/VigenereCipher.js"; //Ganti import metode disini
-const ProductPage = () => {
+import AffineCipher from "../utils/AffineCipher.js";
+import ReaderFile from "../components/ReaderFile.jsx";
+
+const VigenerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new Vigenere(key); //tinggal ganti metode nya disini
+  const affine = new AffineCipher(3, 8);
 
   const encrypt = () => {
-    const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini
+    const encryptedText = affine.encrypt(plaintext);
     setCiphertext(encryptedText);
   };
 
   const decrypt = () => {
-    const decryptedText = vigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
+    const decryptedText = affine.decrypt(ciphertext);
     setDecryptedText(decryptedText);
   };
 
@@ -25,12 +27,11 @@ const ProductPage = () => {
         <Container>
           <Row className="header-box d-flex align-items-center">
             <Col className="col-spacing">
-              <h1>Product Cipher</h1>
-              <p>
-                Metode menyandikan teks (26 karakter alfabet) dengan kombinasi
-                Vigenere Cipher (26 huruf alfabet) dan cipher transposisi
-                berbasis kolom (26 huruf alfabet).
-              </p>
+              <div className="">
+                <h1>Affine Cipher</h1>
+                <p></p>
+              </div>
+              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -90,4 +91,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default VigenerePage;

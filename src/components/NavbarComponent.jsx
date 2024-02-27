@@ -1,11 +1,10 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const NavbarComponent = () => {
   return (
     <div>
-      <Navbar expand="lg">
-        {/* <Container> */}
+      <Navbar expand="lg" fixed="top" className="custom-navbar">
         <div className="d-flex flex-column align-items-center">
           <div>
             <Navbar.Brand className="fs-1 fw-bold" href="/">
@@ -24,21 +23,28 @@ const NavbarComponent = () => {
             <NavLink className="nav-link" exact to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/vignere">
-              Vigenere Cipher
-            </NavLink>
-            <NavLink className="nav-link" to="/extended-vignere">
-              Extended Vignere Cipher
-            </NavLink>
-            <NavLink className="nav-link" to="/playfair">
-              Playfair Cipher
-            </NavLink>
-            <NavLink className="nav-link" to="/product">
-              Product Cipher
-            </NavLink>
+            <NavDropdown title="Ciphers" id="basic-nav-dropdown" align="end">
+              <NavDropdown.Item as={NavLink} to="/vignere">
+                Vigenere Cipher
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/extended-vignere">
+                Extended Vigenere Cipher
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/playfair">
+                Playfair Cipher
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/product">
+                Product Cipher
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/affine">
+                Affine Cipher
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/autokey-vigenere">
+                Autokey Vigenere Cipher
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        {/* </Container> */}
       </Navbar>
     </div>
   );

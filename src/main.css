@@ -14,7 +14,8 @@
 
 .navbar{
     position: fixed;
-    padding: 15px 60px 15px 60px;
+    height: 120px;
+    padding: 0 60px;
     width: 100%;
 }
 
@@ -32,17 +33,21 @@
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
+#basic-navbar-nav {
+    font-size: 1.5rem;
+}
 /*STYLE NAVBAR*/
 
 /*STYLE HEADER*/
-header{
+.homepage{
+    padding-top: 120px;
     background: #c6ffdd; 
     background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
     background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);
 }
 
 .homepage .header-box h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: var(--color-text);
 }

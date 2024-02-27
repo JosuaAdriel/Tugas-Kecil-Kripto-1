@@ -1,4 +1,4 @@
-class ExtendedVigenere {
+class ExtendedVigenereCipher {
   constructor(key) {
     this.key = key; // Convert key to uppercase
   }
@@ -30,10 +30,4 @@ class ExtendedVigenere {
   }
 }
 
-export default ExtendedVigenere;
-// Example usage:
-// let cipher = new ExtendedVigenere("KEYWORD");
-// let plaintext = "Hello, world!"; // Example plaintext with extended ASCII characters
-// let ciphertext = cipher.encrypt(plaintext);
-// console.log("Encrypted:", ciphertext);
-// console.log("Decrypted:", cipher.decrypt(ciphertext));
+export default ExtendedVigenereCipher;

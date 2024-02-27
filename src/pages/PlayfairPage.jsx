@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import Playfair from "../utils/Playfair.js"; //Ganti import metode disini
+import PlayfairCipher from "../utils/PlayfairCipher.js"; //Ganti import metode disini
 import ReaderFile from "../components/ReaderFile.jsx";
 
 const PlayfairPage = () => {
@@ -9,7 +9,7 @@ const PlayfairPage = () => {
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const playfair = new Playfair(key); //tinggal ganti metode nya disini
+  const playfair = new PlayfairCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
     const encryptedText = playfair.encrypt(plaintext); //tinggal ganti metode nya disini

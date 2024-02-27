@@ -1,4 +1,4 @@
-class Playfair {
+class PlayfairCipher {
   constructor(key) {
     this.key = this.prepareKey(key);
     this.keySquare = this.generateKeySquare(this.key);
@@ -119,4 +119,4 @@ class Playfair {
   }
 }
 
-export default Playfair;
+export default PlayfairCipher;
