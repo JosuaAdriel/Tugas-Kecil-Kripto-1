@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import VigenereCipher from "../utils/VigenereCipher.js";
-import ReaderFile from "../components/ReaderFile.jsx";
+import ReaderTxt from "../components/ReaderTxt.jsx";
 
 const VigenerePage = () => {
   const [plaintext, setPlaintext] = useState("");
@@ -36,8 +36,11 @@ const VigenerePage = () => {
                   kata kunci.
                 </p>
               </div>
-              <div className='reader'>
-                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+              <div className="reader">
+                <ReaderTxt
+                  setPlaintext={setPlaintext}
+                  setCiphertext={setCiphertext}
+                />
               </div>
               <div className="input-group">
                 <label htmlFor="key">Key:</label>

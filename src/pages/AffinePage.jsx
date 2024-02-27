@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import AffineCipher from "../utils/AffineCipher.js";
-import ReaderFile from "../components/ReaderFile.jsx";
+import ReaderTxt from "../components/ReaderTxt.jsx";
 
 const AffinePage = () => {
   const [plaintext, setPlaintext] = useState("");
@@ -15,13 +15,12 @@ const AffinePage = () => {
 
   const checkCoprime = () => {
     // Check if 'a' is coprime with 26
-      if (gcd(a, 26) !== 1) {
-        alert("'a' must be coprime with 26.");
-        return 1;
-      }
+    if (gcd(a, 26) !== 1) {
+      alert("'a' must be coprime with 26.");
+      return 1;
+    }
     return 0; // 'a' is coprime with 26
   };
-  
 
   const gcd = (a, b) => {
     // Calculate the greatest common divisor using Euclid's algorithm
@@ -55,10 +54,18 @@ const AffinePage = () => {
             <Col className="col-spacing">
               <div className="">
                 <h1>Affine Cipher</h1>
-                <p>Affine cipher adalah perluasan dari algoritma caesar cipher yang diperoleh dengan mengalikan plainteks dengan suatu bilangan yang relatif prima dengan nilai pergeseran, kemudian hasilnya dijumlahkan dengan nilai pergeseran.</p>
+                <p>
+                  Affine cipher adalah perluasan dari algoritma caesar cipher
+                  yang diperoleh dengan mengalikan plainteks dengan suatu
+                  bilangan yang relatif prima dengan nilai pergeseran, kemudian
+                  hasilnya dijumlahkan dengan nilai pergeseran.
+                </p>
               </div>
-              <div className='reader'>
-                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext}/>
+              <div className="reader">
+                <ReaderTxt
+                  setPlaintext={setPlaintext}
+                  setCiphertext={setCiphertext}
+                />
               </div>
               <div className="input-group">
                 <label htmlFor="a">a:</label>

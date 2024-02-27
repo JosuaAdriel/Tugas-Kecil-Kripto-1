@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import AutokeyVigenereCipher from "../utils/AutokeyVigenereCipher.js";
-import ReaderFile from "../components/ReaderFile.jsx";
+import ReaderTxt from "../components/ReaderTxt.jsx";
 
 const AutoKeyVigenerePage = () => {
   const [plaintext, setPlaintext] = useState("");
@@ -30,12 +30,13 @@ const AutoKeyVigenerePage = () => {
             <Col className="col-spacing">
               <div className="">
                 <h1>Auto-key Vigenere Cipher</h1>
-                <p>
-                  xxxxxx
-                </p>
+                <p>xxxxxx</p>
               </div>
-              <div className='reader'>
-                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+              <div className="reader">
+                <ReaderTxt
+                  setPlaintext={setPlaintext}
+                  setCiphertext={setCiphertext}
+                />
               </div>
               <div className="input-group">
                 <label htmlFor="key">Key:</label>

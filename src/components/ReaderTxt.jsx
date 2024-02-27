@@ -1,11 +1,11 @@
-function ReaderFile({ setPlaintext, setCiphertext }) {
+function ReaderTxt({ setPlaintext, setCiphertext }) {
   function onChange(event) {
     var file = event.target.files[0];
     if (!file) return; // Ensure a file is selected
 
     const reader = new FileReader();
 
-    reader.readAsDataURL(file);
+    reader.readAsText(file);
 
     reader.onload = (event) => {
       const fileContent = event.target.result; // File content as string
@@ -24,6 +24,7 @@ function ReaderFile({ setPlaintext, setCiphertext }) {
       <div className="">
         <input
           id="fileUpload"
+          accept=".txt"
           onClick={(e) => (e.target.value = null)}
           onChange={(e) => onChange(e)}
           type="file"
@@ -33,4 +34,4 @@ function ReaderFile({ setPlaintext, setCiphertext }) {
   );
 }
 
-export default ReaderFile;
+export default ReaderTxt;

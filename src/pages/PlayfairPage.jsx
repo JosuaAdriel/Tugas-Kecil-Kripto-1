@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import PlayfairCipher from "../utils/PlayfairCipher.js"; //Ganti import metode disini
-import ReaderFile from "../components/ReaderFile.jsx";
+import ReaderTxt from "../components/ReaderTxt.jsx";
 
 const PlayfairPage = () => {
   const [plaintext, setPlaintext] = useState("");
@@ -36,8 +36,11 @@ const PlayfairPage = () => {
                   analisis frekuensi kemunculan huruf pada teks.
                 </p>
               </div>
-              <div className='reader'>
-              <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+              <div className="reader">
+                <ReaderTxt
+                  setPlaintext={setPlaintext}
+                  setCiphertext={setCiphertext}
+                />
               </div>
               <div className="input-group">
                 <label htmlFor="key">Key:</label>

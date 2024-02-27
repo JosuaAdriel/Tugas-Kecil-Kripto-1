@@ -1,13 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import Vigenere from "../utils/VigenereCipher.js"; //Ganti import metode disini
+import VigenereCipher from "../utils/VigenereCipher.js"; //Ganti import metode disini
+
 const ProductPage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new Vigenere(key); //tinggal ganti metode nya disini
+  const vigenere = new VigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
     const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini
