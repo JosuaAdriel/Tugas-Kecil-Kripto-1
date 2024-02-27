@@ -8,20 +8,17 @@ const ExtendedVignerePage = () => {
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
-  const [fileFormat, setFileFormat] = useState("");
-  const [base64, setBase64] = useState("");
 
   const vigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
-    const encryptedText = vigenere.encrypt(base64); //tinggal ganti metode nya disini
-    setCiphertext(fileFormat + encryptedText);
-    setBase64(encryptedText);
+    const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini
+    setCiphertext(encryptedText);
   };
 
   const decrypt = () => {
-    const decryptedText = vigenere.decrypt(base64); //tinggal ganti metode nya disini
-    setDecryptedText(fileFormat + decryptedText);
+    const decryptedText = vigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
+    setDecryptedText(decryptedText);
   };
 
   return (
@@ -38,12 +35,7 @@ const ExtendedVignerePage = () => {
                   kata kunci.
                 </p>
               </div>
-              <ReaderFile
-                onlyTxt={false}
-                setPlaintext={setPlaintext}
-                setFileFormat={setFileFormat}
-                setBase64={setBase64}
-              />
+              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -93,6 +85,7 @@ const ExtendedVignerePage = () => {
             </Col>
           </Row>
           <Row className="download d-flex align-items-center">
+            <img src={decryptedText} alt="" />
             <p>Download Cipher Text File Disini.</p>
           </Row>
         </Container>

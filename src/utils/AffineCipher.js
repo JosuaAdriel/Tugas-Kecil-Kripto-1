@@ -1,8 +1,8 @@
 class AffineCipher {
   constructor(a, b) {
-    if (this.gcd(a, 26) !== 1) {
-      throw new Error("Invalid 'a' value. 'a' must be coprime with 26.");
-    }
+    // if (this.gcd(a, 26) !== 1) {
+    //   throw new Error("Invalid 'a' value. 'a' must be coprime with 26.");
+    // }
     this.a = a;
     this.b = b;
   }
@@ -48,4 +48,5 @@ class AffineCipher {
     return plaintext;
   }
 }
+
 export default AffineCipher;

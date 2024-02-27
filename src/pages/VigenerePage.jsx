@@ -35,7 +35,7 @@ const VigenerePage = () => {
                   kata kunci.
                 </p>
               </div>
-              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
+              <ReaderFile setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">

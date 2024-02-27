@@ -1,9 +1,4 @@
-function ReaderFile({
-  onlyTxt = true,
-  setPlaintext,
-  setFileFormat,
-  setBase64,
-}) {
+function ReaderFile({ onlyTxt = true, setPlaintext }) {
   function onChange(event) {
     var file = event.target.files[0];
     if (!file) return; // Ensure a file is selected
@@ -23,11 +18,7 @@ function ReaderFile({
 
     reader.onload = (event) => {
       const fileContent = event.target.result; // File content as string
-      if (setFileFormat) {
-        setFileFormat(fileContent.split(",")[0] + ",");
-      }
       setPlaintext(fileContent); // Do something with the string
-      setBase64(fileContent.split(",")[1]); // Do something with the string
     };
 
     reader.onerror = (error) => {
@@ -37,12 +28,23 @@ function ReaderFile({
 
   return (
     <div className="">
-      <label htmlFor="">Upload File</label>
+      <label htmlFor="fileUpload">Upload File</label>
       <div className="">
         {onlyTxt ? (
-          <input accept=".txt" onChange={(e) => onChange(e)} type="file" />
+          <input
+            id="fileUpload"
+            accept=".txt"
+            onClick={(e) => (e.target.value = null)}
+            onChange={(e) => onChange(e)}
+            type="file"
+          />
         ) : (
-          <input onChange={(e) => onChange(e)} type="file" />
+          <input
+            id="fileUpload"
+            onClick={(e) => (e.target.value = null)}
+            onChange={(e) => onChange(e)}
+            type="file"
+          />
         )}
       </div>
     </div>

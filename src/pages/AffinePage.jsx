@@ -3,13 +3,14 @@ import { useState } from "react";
 import AffineCipher from "../utils/AffineCipher.js";
 import ReaderFile from "../components/ReaderFile.jsx";
 
-const VigenerePage = () => {
+const AffinePage = () => {
   const [plaintext, setPlaintext] = useState("");
-  const [key, setKey] = useState("");
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(1);
   const [ciphertext, setCiphertext] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
-  const affine = new AffineCipher(3, 8);
+  const affine = new AffineCipher(a, b);
 
   const encrypt = () => {
     const encryptedText = affine.encrypt(plaintext);
@@ -31,7 +32,7 @@ const VigenerePage = () => {
                 <h1>Affine Cipher</h1>
                 <p></p>
               </div>
-              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
+              <ReaderFile setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -44,14 +45,19 @@ const VigenerePage = () => {
                 />
               </div>
               <div className="input-group">
-                <label htmlFor="key">Key:</label>
-                <textarea
-                  id="key"
-                  value={key}
-                  onChange={(e) =>
-                    setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ""))
-                  }
-                  rows={10} // Set the number of rows for the textarea
+                <label htmlFor="a">a:</label>
+                <input
+                  id="b"
+                  value={a}
+                  type="number"
+                  onChange={(e) => setA(Number(e.target.value))}
+                />
+                <label htmlFor="b">b:</label>
+                <input
+                  id="b"
+                  value={b}
+                  type="number"
+                  onChange={(e) => setB(Number(e.target.value))}
                 />
               </div>
               <div className="button-group">
@@ -91,4 +97,4 @@ const VigenerePage = () => {
   );
 };
 
-export default VigenerePage;
+export default AffinePage;
