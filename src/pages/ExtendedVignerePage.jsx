@@ -7,14 +7,14 @@ const ExtendedVignerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
-  const [encryptedText, setencryptedText] = useState("");
+  const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
   const extendedVigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
     const encryptedText = extendedVigenere.encrypt(plaintext); //tinggal ganti metode nya disini
-    setencryptedText(encryptedText);
+    setEncryptedText(encryptedText);
   };
 
   const decrypt = () => {
@@ -37,7 +37,7 @@ const ExtendedVignerePage = () => {
                 </p>
               </div>
               <div className='reader'>
-                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+                <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
               </div>
               <div className="input-group">
                 <label htmlFor="key">Key:</label>

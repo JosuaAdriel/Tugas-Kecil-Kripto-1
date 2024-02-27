@@ -6,7 +6,7 @@ import ExtendedVignerePage from "./pages/ExtendedVignerePage";
 import PlayfairPage from "./pages/PlayfairPage";
 import ProductPage from "./pages/ProductPage";
 import AffinePage from "./pages/AffinePage";
-import AutokeyVigenerePage from "./pages/AffinePage";
+import AutokeyVigenerePage from "./pages/AutokeyVigenerePage";
 function App() {
   return (
     <div>
