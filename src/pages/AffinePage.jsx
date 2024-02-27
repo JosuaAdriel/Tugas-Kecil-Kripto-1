@@ -8,16 +8,41 @@ const AffinePage = () => {
   const [a, setA] = useState(1);
   const [b, setB] = useState(1);
   const [ciphertext, setCiphertext] = useState("");
+  const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
   const affine = new AffineCipher(a, b);
 
+  const checkCoprime = () => {
+    // Check if 'a' is coprime with 26
+      if (gcd(a, 26) !== 1) {
+        alert("'a' must be coprime with 26.");
+        return 1;
+      }
+    return 0; // 'a' is coprime with 26
+  };
+  
+
+  const gcd = (a, b) => {
+    // Calculate the greatest common divisor using Euclid's algorithm
+    while (b !== 0) {
+      [a, b] = [b, a % b];
+    }
+    return a;
+  };
+
   const encrypt = () => {
+    if (checkCoprime() == 1) {
+      window.location.reload();
+    }
     const encryptedText = affine.encrypt(plaintext);
-    setCiphertext(encryptedText);
+    setEncryptedText(encryptedText);
   };
 
   const decrypt = () => {
+    if (checkCoprime() == 1) {
+      window.location.reload();
+    }
     const decryptedText = affine.decrypt(ciphertext);
     setDecryptedText(decryptedText);
   };
@@ -30,19 +55,10 @@ const AffinePage = () => {
             <Col className="col-spacing">
               <div className="">
                 <h1>Affine Cipher</h1>
-                <p></p>
+                <p>Affine cipher adalah perluasan dari algoritma caesar cipher yang diperoleh dengan mengalikan plainteks dengan suatu bilangan yang relatif prima dengan nilai pergeseran, kemudian hasilnya dijumlahkan dengan nilai pergeseran.</p>
               </div>
-              <ReaderFile setPlaintext={setPlaintext} />
-            </Col>
-            <Col className="col-spacing">
-              <div className="input-group">
-                <label htmlFor="plaintext">Plaintext:</label>
-                <textarea
-                  id="plaintext"
-                  value={plaintext}
-                  onChange={(e) => setPlaintext(e.target.value)}
-                  rows={8} // Set the number of rows for the textarea
-                />
+              <div className='reader'>
+                <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext}/>
               </div>
               <div className="input-group">
                 <label htmlFor="a">a:</label>
@@ -60,6 +76,26 @@ const AffinePage = () => {
                   onChange={(e) => setB(Number(e.target.value))}
                 />
               </div>
+            </Col>
+            <Col className="col-spacing">
+              <div className="input-group">
+                <label htmlFor="plaintext">Plaintext:</label>
+                <textarea
+                  id="plaintext"
+                  value={plaintext}
+                  onChange={(e) => setPlaintext(e.target.value)}
+                  rows={8} // Set the number of rows for the textarea
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="encryptedPlainText">Encrypted Text:</label>
+                <textarea
+                  id="encryptedPlainTextt"
+                  value={encryptedText}
+                  readOnly
+                  rows={8}
+                />
+              </div>
               <div className="button-group">
                 <button onClick={encrypt}>Encrypt</button>
               </div>
@@ -70,7 +106,7 @@ const AffinePage = () => {
                 <textarea
                   id="ciphertext"
                   value={ciphertext}
-                  readOnly
+                  onChange={(e) => setCiphertext(e.target.value)}
                   rows={8}
                 />
               </div>

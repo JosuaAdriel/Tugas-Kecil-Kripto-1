@@ -7,14 +7,14 @@ const VigenerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
-  const [encryptedText, setencryptedText] = useState("");
+  const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
   const vigenere = new VigenereCipher(key);
 
   const encrypt = () => {
     const encryptedText = vigenere.encrypt(plaintext);
-    setencryptedText(encryptedText);
+    setEncryptedText(encryptedText);
   };
 
   const decrypt = () => {

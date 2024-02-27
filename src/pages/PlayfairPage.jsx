@@ -7,13 +7,14 @@ const PlayfairPage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
+  const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
 
   const playfair = new PlayfairCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
     const encryptedText = playfair.encrypt(plaintext); //tinggal ganti metode nya disini
-    setCiphertext(encryptedText);
+    setEncryptedText(encryptedText);
   };
 
   const decrypt = () => {
@@ -35,7 +36,22 @@ const PlayfairPage = () => {
                   analisis frekuensi kemunculan huruf pada teks.
                 </p>
               </div>
-              <ReaderFile setPlaintext={setPlaintext} />
+              <div className='reader'>
+              <ReaderFile setPlaintext={setPlaintext} setCiphertext={setCiphertext} />
+              </div>
+              <div className="input-group">
+                <label htmlFor="key">Key:</label>
+                <textarea
+                  id="key"
+                  value={key}
+                  onChange={(e) =>
+                    setKey(
+                      e.target.value.toUpperCase().replace(/[^A-Z\s]/g, "")
+                    )
+                  }
+                  rows={1} // Set the number of rows for the textarea
+                />
+              </div>
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -48,16 +64,12 @@ const PlayfairPage = () => {
                 />
               </div>
               <div className="input-group">
-                <label htmlFor="key">Key:</label>
+                <label htmlFor="encryptedPlainText">Encrypted Text:</label>
                 <textarea
-                  id="key"
-                  value={key}
-                  onChange={(e) =>
-                    setKey(
-                      e.target.value.toUpperCase().replace(/[^A-Z\s]/g, "")
-                    )
-                  }
-                  rows={8} // Set the number of rows for the textarea
+                  id="encryptedPlainTextt"
+                  value={encryptedText}
+                  readOnly
+                  rows={8}
                 />
               </div>
               <div className="button-group">
@@ -66,7 +78,7 @@ const PlayfairPage = () => {
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
-                <label htmlFor="ciphertext">Ciphertext (Base64):</label>
+                <label htmlFor="ciphertext">Ciphertext:</label>
                 <textarea
                   id="ciphertext"
                   value={ciphertext}
