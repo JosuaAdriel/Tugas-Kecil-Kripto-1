@@ -68,7 +68,9 @@ const PlayfairPage = () => {
                 <textarea
                   id="ciphertext"
                   value={ciphertext}
-                  readOnly
+                  onChange={(e) =>
+                    setCiphertext(e.target.value)
+                  }
                   rows={8}
                 />
               </div>

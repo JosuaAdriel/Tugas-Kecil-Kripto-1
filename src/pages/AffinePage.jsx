@@ -40,7 +40,7 @@ const VigenerePage = () => {
                   id="plaintext"
                   value={plaintext}
                   onChange={(e) => setPlaintext(e.target.value)}
-                  rows={10} // Set the number of rows for the textarea
+                  rows={8} // Set the number of rows for the textarea
                 />
               </div>
               <div className="input-group">
@@ -51,7 +51,7 @@ const VigenerePage = () => {
                   onChange={(e) =>
                     setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ""))
                   }
-                  rows={10} // Set the number of rows for the textarea
+                  rows={8} // Set the number of rows for the textarea
                 />
               </div>
               <div className="button-group">
@@ -65,7 +65,7 @@ const VigenerePage = () => {
                   id="ciphertext"
                   value={ciphertext}
                   readOnly
-                  rows={10}
+                  rows={8}
                 />
               </div>
               <div className="input-group">
@@ -74,7 +74,7 @@ const VigenerePage = () => {
                   id="decryptedText"
                   value={decryptedText}
                   readOnly
-                  rows={10}
+                  rows={8}
                 />
               </div>
               <div className="button-group">

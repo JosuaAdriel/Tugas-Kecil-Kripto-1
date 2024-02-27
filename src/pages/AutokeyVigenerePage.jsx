@@ -1,24 +1,24 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import VigenereCipher from "../utils/VigenereCipher.js";
+import ExtendedVigenereCipher from "../utils/ExtendedVigenereCipher.js";
 import ReaderFile from "../components/ReaderFile.jsx";
 
-const VigenerePage = () => {
+const AutokeyVigenerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
-  //const [decryptedText, setDecryptedText] = useState("");
+  const [decryptedText, setDecryptedText] = useState("");
 
-  const vigenere = new VigenereCipher(key);
+  const vigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
   const encrypt = () => {
-    const encryptedText = vigenere.encrypt(plaintext);
+    const encryptedText = vigenere.encrypt(plaintext); //tinggal ganti metode nya disini
     setCiphertext(encryptedText);
   };
 
   const decrypt = () => {
-    const decryptedText = vigenere.decrypt(plaintext);
-    setCiphertext("s");
+    const decryptedText = vigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
+    setDecryptedText(decryptedText);
   };
 
   return (
@@ -28,22 +28,14 @@ const VigenerePage = () => {
           <Row className="header-box d-flex align-items-center">
             <Col className="col-spacing">
               <div className="">
-                <h1>Vigenere Cipher</h1>
+                <h1>Extended Vigenere Cipher</h1>
                 <p>
-                  Metode menyandikan teks (26 karakter alfabet) dengan
+                  Metode menyandikan teks (256 karakter ASCII) dengan
                   menggunakan deretan sandi Caesar berdasarkan huruf-huruf pada
                   kata kunci.
                 </p>
               </div>
-              <div className='reader'>
-                <ReaderFile onlyTxt={true} setPlaintext={setPlaintext} />
-              </div>
-              <div className="button-group">
-                <button onClick={encrypt}>Encrypt</button>
-              </div>
-              <div className="button-group">
-                <button onClick={decrypt}>Decrypt</button>
-              </div>
+              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -60,11 +52,12 @@ const VigenerePage = () => {
                 <textarea
                   id="key"
                   value={key}
-                  onChange={(e) =>
-                    setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ""))
-                  }
+                  onChange={(e) => setKey(e.target.value)}
                   rows={8} // Set the number of rows for the textarea
                 />
+              </div>
+              <div className="button-group">
+                <button onClick={encrypt}>Encrypt</button>
               </div>
             </Col>
             <Col className="col-spacing">
@@ -74,8 +67,20 @@ const VigenerePage = () => {
                   id="ciphertext"
                   value={ciphertext}
                   readOnly
-                  rows={20}
+                  rows={8}
                 />
+              </div>
+              <div className="input-group">
+                <label htmlFor="decryptedText">Decrypted Text:</label>
+                <textarea
+                  id="decryptedText"
+                  value={decryptedText}
+                  readOnly
+                  rows={8}
+                />
+              </div>
+              <div className="button-group">
+                <button onClick={decrypt}>Decrypt</button>
               </div>
             </Col>
           </Row>
@@ -88,4 +93,4 @@ const VigenerePage = () => {
   );
 };
 
-export default VigenerePage;
+export default AutokeyVigenerePage;
