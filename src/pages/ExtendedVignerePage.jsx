@@ -17,8 +17,8 @@ const ExtendedVignerePage = () => {
   };
 
   const decrypt = () => {
-    const decryptedText = vigenere.decrypt(plaintext); //tinggal ganti metode nya disini
-    setCiphertext(decryptedText);
+    const decryptedText = vigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
+    setDecryptedText(decryptedText);
   };
 
   return (
@@ -30,20 +30,12 @@ const ExtendedVignerePage = () => {
               <div className="">
                 <h1>Extended Vigenere Cipher</h1>
                 <p>
-                 Metode menyandikan teks (256 karakter ASCII) dengan
-                 menggunakan deretan sandi Caesar berdasarkan huruf-huruf pada
-                 kata kunci.
+                  Metode menyandikan teks (256 karakter ASCII) dengan
+                  menggunakan deretan sandi Caesar berdasarkan huruf-huruf pada
+                  kata kunci.
                 </p>
               </div>
-              <div className='reader'>
-                <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
-              </div>
-              <div className="button-group">
-                <button onClick={encrypt}>Encrypt</button>
-              </div>
-              <div className="button-group">
-                <button onClick={decrypt}>Decrypt</button>
-              </div>
+              <ReaderFile onlyTxt={false} setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -64,6 +56,9 @@ const ExtendedVignerePage = () => {
                   rows={8} // Set the number of rows for the textarea
                 />
               </div>
+              <div className="button-group">
+                <button onClick={encrypt}>Encrypt</button>
+              </div>
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
@@ -72,8 +67,20 @@ const ExtendedVignerePage = () => {
                   id="ciphertext"
                   value={ciphertext}
                   readOnly
-                  rows={20}
+                  rows={8}
                 />
+              </div>
+              <div className="input-group">
+                <label htmlFor="decryptedText">Decrypted Text:</label>
+                <textarea
+                  id="decryptedText"
+                  value={decryptedText}
+                  readOnly
+                  rows={8}
+                />
+              </div>
+              <div className="button-group">
+                <button onClick={decrypt}>Decrypt</button>
               </div>
             </Col>
           </Row>
