@@ -70,11 +70,18 @@ class PlayfairCipher {
   }
 
   decrypt(cipherText) {
+    cipherText = cipherText.toUpperCase().replace(/[^A-Z]/g, "");
     let plainText = "";
 
     for (let i = 0; i < cipherText.length; i += 2) {
       let char1 = cipherText[i];
-      let char2 = cipherText[i + 1];
+      let char2 = cipherText[i + 1] || "X";
+
+      // If both characters in the digram are the same, insert 'X' as the second character
+      if (char1 === char2) {
+        char2 = "X";
+        i--; // Decrement i so that the same character is used again
+      }
 
       let index1 = this.keySquare.indexOf(char1);
       let index2 = this.keySquare.indexOf(char2);
@@ -95,7 +102,6 @@ class PlayfairCipher {
         plainText += this.keySquare[row2 * 5 + col1];
       }
     }
-
     return plainText;
   }
 }
