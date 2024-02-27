@@ -1,121 +1,102 @@
 class PlayfairCipher {
-  constructor(key) {
-    this.key = this.prepareKey(key);
-    this.keySquare = this.generateKeySquare(this.key);
+  constructor(keyword) {
+    // Remove duplicate letters from the keyword and append remaining letters of the alphabet
+    this.keyword = keyword.toUpperCase().replace(/J/g, "I").replace(/ /g, "");
+    this.keySquare = this.generateKeySquare();
   }
 
-  prepareKey(key) {
-    // Remove spaces and duplicate letters
-    key = key.replace(/ /g, "").toUpperCase();
-    let uniqueChars = [];
-    for (let char of key) {
-      if (!uniqueChars.includes(char)) {
-        uniqueChars.push(char);
+  generateKeySquare() {
+    let keySquare = "";
+    const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; // 'J' is replaced with 'I'
+    let keyword = this.keyword;
+
+    // Remove duplicate letters from the keyword
+    keyword = keyword
+      .split("")
+      .filter((char, index, self) => self.indexOf(char) === index)
+      .join("");
+
+    // Append remaining letters of the alphabet after the keyword
+    keyword += alphabet
+      .split("")
+      .filter((char) => !keyword.includes(char))
+      .join("");
+
+    // Fill the key square row-by-row
+    for (let i = 0; i < keyword.length; i++) {
+      if (!keySquare.includes(keyword[i])) {
+        keySquare += keyword[i];
       }
     }
-    return uniqueChars.join("");
-  }
 
-  generateKeySquare(key) {
-    let keySquare = [];
-    let alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; // Excluding 'J'
-    let keyIndex = 0;
-
-    // Populate key-related characters first
-    for (let i = 0; i < 5; i++) {
-      let row = [];
-      for (let j = 0; j < 5; j++) {
-        if (keyIndex < key.length) {
-          row.push(key[keyIndex]);
-          keyIndex++;
-        } else {
-          // Fill the rest of the grid with remaining alphabet letters
-          while (key.includes(alphabet[0])) {
-            alphabet = alphabet.slice(1);
-          }
-          row.push(alphabet[0]);
-          alphabet = alphabet.slice(1);
-        }
-      }
-      keySquare.push(row);
-    }
     return keySquare;
   }
 
-  encrypt(plaintext) {
-    plaintext = plaintext.toUpperCase().replace(/J/g, "I").replace(/ /g, "");
-    let ciphertext = "";
-    for (let i = 0; i < plaintext.length; i += 2) {
-      let char1 = plaintext[i];
-      let char2 = plaintext[i + 1] ? plaintext[i + 1] : "X"; // Add 'X' if the last digraph has only one character
-      let pair1 = this.findCharPosition(char1);
-      let pair2 = this.findCharPosition(char2);
+  encrypt(plainText) {
+    plainText = plainText.replace(/j/g, "i").toUpperCase().replace(/ /g, "");
+    let cipherText = "";
 
-      let encryptedPair = this.encryptPair(pair1, pair2);
-      ciphertext += encryptedPair[0] + encryptedPair[1];
-    }
-    return ciphertext;
-  }
+    for (let i = 0; i < plainText.length; i += 2) {
+      let char1 = plainText[i];
+      let char2 = plainText[i + 1] || "X"; // If odd number of characters, append 'X'
 
-  decrypt(ciphertext) {
-    let plaintext = "";
-    for (let i = 0; i < ciphertext.length; i += 2) {
-      let char1 = ciphertext[i];
-      let char2 = ciphertext[i + 1];
-      let pair1 = this.findCharPosition(char1);
-      let pair2 = this.findCharPosition(char2);
+      // If both characters in the digram are the same, insert 'X' as the second character
+      if (char1 === char2) {
+        char2 = "X";
+        i--; // Decrement i so that the same character is used again
+      }
 
-      let decryptedPair = this.decryptPair(pair1, pair2);
-      plaintext += decryptedPair[0] + decryptedPair[1];
-    }
-    return plaintext;
-  }
+      let index1 = this.keySquare.indexOf(char1);
+      let index2 = this.keySquare.indexOf(char2);
 
-  findCharPosition(char) {
-    for (let i = 0; i < this.keySquare.length; i++) {
-      let row = this.keySquare[i];
-      if (row.includes(char)) {
-        return [i, row.indexOf(char)];
+      let row1 = Math.floor(index1 / 5);
+      let col1 = index1 % 5;
+      let row2 = Math.floor(index2 / 5);
+      let col2 = index2 % 5;
+
+      if (row1 === row2) {
+        cipherText += this.keySquare[row1 * 5 + ((col1 + 1) % 5)];
+        cipherText += this.keySquare[row2 * 5 + ((col2 + 1) % 5)];
+      } else if (col1 === col2) {
+        cipherText += this.keySquare[((row1 + 1) % 5) * 5 + col1];
+        cipherText += this.keySquare[((row2 + 1) % 5) * 5 + col2];
+      } else {
+        cipherText += this.keySquare[row1 * 5 + col2];
+        cipherText += this.keySquare[row2 * 5 + col1];
       }
     }
+
+    return cipherText;
   }
 
-  encryptPair(pair1, pair2) {
-    let [row1, col1] = pair1;
-    let [row2, col2] = pair2;
+  decrypt(cipherText) {
+    let plainText = "";
 
-    if (row1 === row2) {
-      col1 = (col1 + 1) % 5;
-      col2 = (col2 + 1) % 5;
-    } else if (col1 === col2) {
-      row1 = (row1 + 1) % 5;
-      row2 = (row2 + 1) % 5;
-    } else {
-      let temp = col1;
-      col1 = col2;
-      col2 = temp;
+    for (let i = 0; i < cipherText.length; i += 2) {
+      let char1 = cipherText[i];
+      let char2 = cipherText[i + 1];
+
+      let index1 = this.keySquare.indexOf(char1);
+      let index2 = this.keySquare.indexOf(char2);
+
+      let row1 = Math.floor(index1 / 5);
+      let col1 = index1 % 5;
+      let row2 = Math.floor(index2 / 5);
+      let col2 = index2 % 5;
+
+      if (row1 === row2) {
+        plainText += this.keySquare[row1 * 5 + ((col1 + 4) % 5)];
+        plainText += this.keySquare[row2 * 5 + ((col2 + 4) % 5)];
+      } else if (col1 === col2) {
+        plainText += this.keySquare[((row1 + 4) % 5) * 5 + col1];
+        plainText += this.keySquare[((row2 + 4) % 5) * 5 + col2];
+      } else {
+        plainText += this.keySquare[row1 * 5 + col2];
+        plainText += this.keySquare[row2 * 5 + col1];
+      }
     }
 
-    return [this.keySquare[row1][col1], this.keySquare[row2][col2]];
-  }
-
-  decryptPair(pair1, pair2) {
-    let [row1, col1] = pair1;
-    let [row2, col2] = pair2;
-
-    if (row1 === row2) {
-      col1 = (col1 - 1 + 5) % 5;
-      col2 = (col2 - 1 + 5) % 5;
-    } else if (col1 === col2) {
-      row1 = (row1 - 1 + 5) % 5;
-      row2 = (row2 - 1 + 5) % 5;
-    } else {
-      let temp = col1;
-      col1 = col2;
-      col2 = temp;
-    }
-
-    return [this.keySquare[row1][col1], this.keySquare[row2][col2]];
+    return plainText;
   }
 }
 

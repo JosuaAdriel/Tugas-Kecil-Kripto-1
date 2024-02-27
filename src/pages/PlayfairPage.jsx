@@ -70,9 +70,7 @@ const PlayfairPage = () => {
                 <textarea
                   id="ciphertext"
                   value={ciphertext}
-                  onChange={(e) =>
-                    setCiphertext(e.target.value)
-                  }
+                  onChange={(e) => setCiphertext(e.target.value)}
                   rows={8}
                 />
               </div>
