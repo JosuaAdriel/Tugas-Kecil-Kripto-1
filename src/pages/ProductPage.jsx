@@ -35,7 +35,7 @@ const ProductPage = () => {
                                     id="plaintext"
                                     value={plaintext}
                                     onChange={(e) => setPlaintext(e.target.value)}
-                                    rows={10} // Set the number of rows for the textarea
+                                    rows={8} // Set the number of rows for the textarea
                                 />
                             </div>
                             <div className="input-group">
@@ -44,7 +44,7 @@ const ProductPage = () => {
                                     id="key"
                                     value={key}
                                     onChange={(e) => setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ''))}
-                                    rows={10} // Set the number of rows for the textarea
+                                    rows={8} // Set the number of rows for the textarea
                                 />
                             </div>
                             <div className="button-group">
@@ -54,11 +54,11 @@ const ProductPage = () => {
                         <Col className="col-spacing">
                             <div className="input-group">
                                 <label htmlFor="ciphertext">Ciphertext (Base64):</label>
-                                <textarea id="ciphertext" value={ciphertext} readOnly rows={10} />
+                                <textarea id="ciphertext" value={ciphertext} readOnly rows={8} />
                             </div>
                             <div className="input-group">
                                 <label htmlFor="decryptedText">Decrypted Text:</label>
-                                <textarea id="decryptedText" value={decryptedText} readOnly rows={10}/>
+                                <textarea id="decryptedText" value={decryptedText} readOnly rows={8}/>
                             </div>
                             <div className="button-group">
                                 <button onClick={decrypt}>Decrypt</button>
