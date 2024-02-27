@@ -13,14 +13,12 @@ class ExtendedVigenere {
       result += String.fromCharCode(encryptedCharCode);
       j++;
     }
-    return result;
-    //return btoa(result); // Convert the result to base64 for binary-safe transmission
+    return btoa(result); // Convert the result to base64 for binary-safe transmission
   }
 
   decrypt(ciphertext) {
     let result = "";
-    const decodedCiphertext = ciphertext;
-    //const decodedCiphertext = atob(ciphertext);
+    const decodedCiphertext = atob(ciphertext);
     for (let i = 0, j = 0; i < decodedCiphertext.length; i++) {
       const cipherCharCode = decodedCiphertext.charCodeAt(i);
       const keyCharCode = this.key.charCodeAt(j % this.key.length);

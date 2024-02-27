@@ -19,15 +19,13 @@ class Vigenere {
         result += plaintext[i];
       }
     }
-    return result;
-    // const encodedChipherText = btoa(result);
-    // return encodedChipherText;
+    const encodedChipherText = btoa(result);
+    return encodedChipherText;
   }
 
   decrypt(ciphertext) {
     let result = "";
-    decodedChipherText = ciphertext;
-    // const decodedChipherText = atob(ciphertext);
+    const decodedChipherText = atob(ciphertext);
     for (let i = 0, j = 0; i < decodedChipherText.length; i++) {
       const cipherCharCode = decodedChipherText.charCodeAt(i);
       if (cipherCharCode >= 65 && cipherCharCode <= 90) {
