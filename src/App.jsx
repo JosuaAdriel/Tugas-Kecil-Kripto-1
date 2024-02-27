@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" Component={HomePage} />
         <Route path="/vignere" Component={VignerePage} />
-        <Route path="/extendedvignere" Component={ExtendedVignerePage} />
+        <Route path="/extended-vignere" Component={ExtendedVignerePage} />
         <Route path="/playfair" Component={PlayfairPage} />
         <Route path="/product" Component={ProductPage} />
       </Routes>
