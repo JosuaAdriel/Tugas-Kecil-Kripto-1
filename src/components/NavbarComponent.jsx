@@ -23,7 +23,7 @@ const NavbarComponent = () => {
             <NavLink className="nav-link" exact to="/">
               Home
             </NavLink>
-            <NavDropdown title="Ciphers" id="basic-nav-dropdown" align="end">
+            <NavDropdown className="nav-link1" title="Ciphers" id="basic-nav-dropdown" align="end">
               <NavDropdown.Item as={NavLink} to="/vignere">
                 Vigenere Cipher
               </NavDropdown.Item>

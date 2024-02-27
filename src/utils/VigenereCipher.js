@@ -19,13 +19,16 @@ class VigenereCipher {
         result += plaintext[i];
       }
     }
-    const encodedChipherText = btoa(result);
-    return encodedChipherText;
+    // //const encodedChipherText = btoa(result);
+    // return encodedChipherText;
+    return result;
   }
 
   decrypt(ciphertext) {
     let result = "";
-    const decodedChipherText = atob(ciphertext);
+    // const decodedChipherText = atob(ciphertext);
+    ciphertext = ciphertext.toUpperCase().replace(/[^A-Z]/g, "");
+    const decodedChipherText = ciphertext
     for (let i = 0, j = 0; i < decodedChipherText.length; i++) {
       const cipherCharCode = decodedChipherText.charCodeAt(i);
       if (cipherCharCode >= 65 && cipherCharCode <= 90) {
