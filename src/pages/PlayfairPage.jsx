@@ -1,6 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import Playfair from "../utils/Playfair.js"; //Ganti import metode disini
+import ReaderFile from "../components/ReaderFile.jsx";
+
 const PlayfairPage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
@@ -25,12 +27,15 @@ const PlayfairPage = () => {
         <Container>
           <Row className="header-box d-flex align-items-center">
             <Col className="col-spacing">
-              <h1>Playfair Cipher</h1>
-              <p>
-                Metode menyandikan teks (26 karakter alfabet) dengan
-                mengenkripsi pasangan huruf (bigram) untuk mempersulit analisis
-                frekuensi kemunculan huruf pada teks.
-              </p>
+              <div className="">
+                <h1>Playfair Cipher</h1>
+                <p>
+                  Metode menyandikan teks (26 karakter alfabet) dengan
+                  mengenkripsi pasangan huruf (bigram) untuk mempersulit
+                  analisis frekuensi kemunculan huruf pada teks.
+                </p>
+              </div>
+              <ReaderFile setPlaintext={setPlaintext} />
             </Col>
             <Col className="col-spacing">
               <div className="input-group">
