@@ -130,26 +130,36 @@ const AffinePage = () => {
                 />
               </div>
               <div className="input-group">
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div>
                   <label htmlFor="a">a:</label>
-                  <button ref={decrementButtonRef} onClick={handleDecrementA}>
-                    -
-                  </button>
-                  <input
-                    id="a"
-                    value={a}
-                    onChange={handleChangeA}
-                    onBlur={handleBlurA}
-                  />
-                  <button ref={incrementButtonRef} onClick={handleIncrementA}>
-                    +
-                  </button>
+                  <div
+                    style={{ display: "flex", alignItems: "center" }}
+                    className=""
+                  >
+                    <button ref={decrementButtonRef} onClick={handleDecrementA}>
+                      -
+                    </button>
+                    <input
+                      id="a"
+                      value={a}
+                      onChange={handleChangeA}
+                      onBlur={handleBlurA}
+                    />
+                    <button ref={incrementButtonRef} onClick={handleIncrementA}>
+                      +
+                    </button>
+                  </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div>
                   <label htmlFor="b">b:</label>
-                  <button onClick={handleDecrementB}>-</button>
-                  <input id="b" value={b} onChange={handleChangeB} />
-                  <button onClick={handleIncrementB}>+</button>
+                  <div
+                    style={{ display: "flex", alignItems: "center" }}
+                    className=""
+                  >
+                    <button onClick={handleDecrementB}>-</button>
+                    <input id="b" value={b} onChange={handleChangeB} />
+                    <button onClick={handleIncrementB}>+</button>
+                  </div>
                 </div>
               </div>
             </Col>
