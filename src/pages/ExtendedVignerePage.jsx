@@ -105,31 +105,33 @@ const ExtendedVignerePage = () => {
             ) : (
               <>
                 <Col className="col-spacing">
-                  <div className="button-group">
-                    <button onClick={encryptFile}>Encrypt File</button>
-                    <p>or</p>
-                    <button onClick={decryptFile}>Decrypt File</button>
-                  </div>
+                  <Row className="">
+                    <div className="button-group">
+                      <button onClick={encryptFile}>Encrypt File</button>
+                      <p>or</p>
+                      <button onClick={decryptFile}>Decrypt File</button>
+                    </div>
+                  </Row>
+                  <Row className="file-result">
+                    {selected !== "Text" && encryptedFile && (
+                      <>
+                        <p>File Encrypted!</p>
+                        <button onClick={downloadEncryptedFile}>
+                          Download Encrypted File
+                        </button>
+                      </>
+                    )}
+                    {selected !== "Text" && decryptedFile && (
+                      <>
+                        <p>File Decrypted!</p>
+                        <button onClick={downloadDecryptedFile}>
+                          Download Decrypted File
+                        </button>
+                      </>
+                    )}
+                  </Row>
                 </Col>
               </>
-            )}
-          </Row>
-          <Row className="download d-flex align-items-center">
-            {selected !== "Text" && encryptedFile && (
-              <div>
-                <p>File Encrypted!</p>
-                <button onClick={downloadEncryptedFile}>
-                  Download Encrypted File
-                </button>
-              </div>
-            )}
-            {selected !== "Text" && decryptedFile && (
-              <div>
-                <p>File Decrypted!</p>
-                <button onClick={downloadDecryptedFile}>
-                  Download Decrypted File
-                </button>
-              </div>
             )}
           </Row>
         </Container>

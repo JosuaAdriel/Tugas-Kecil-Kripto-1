@@ -66,6 +66,7 @@
     font-weight: 500;
     color: var(--color-text);
     display: flex;
+    justify-content: center;
     text-align: justify;
 }
 .homepage .header-box .p2{
@@ -83,11 +84,8 @@
 
 /*STYLE CONTENT*/
 .homepage .download{
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-left: 475px;
-    margin-top: -50px;
-
+    display: flex;
+    justify-content: center;
 }
 .col-spacing{
     padding: 60px;
@@ -95,6 +93,16 @@
 
 .reader{
     margin-bottom: 20px;
+}
+.file-result p{
+    margin-bottom: 0;
+}
+.download p{
+    margin-bottom: 0;
+}
+
+.download button {
+    width: fit-content!important;
 }
 
 .input-group, .button-group, .result-group {

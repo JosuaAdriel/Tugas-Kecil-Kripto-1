@@ -61,9 +61,6 @@ const ProductPage = () => {
               cipher={product}
             />
           </Row>
-          <Row className="download d-flex align-items-center">
-            <p>Download Cipher Text File Disini.</p>
-          </Row>
         </Container>
       </header>
     </div>
