@@ -1,6 +1,6 @@
 class AutokeyVigenereCipher {
   constructor(keyword) {
-    this.keyword = keyword.toUpperCase();
+    this.keyword = keyword.toUpperCase().replace(/[^A-Z]/g, "");
   }
 
   encrypt(plaintext) {
