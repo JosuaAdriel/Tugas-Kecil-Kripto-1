@@ -1,10 +1,7 @@
 class AffineCipher {
   constructor(a, b) {
-    // if (this.gcd(a, 26) !== 1) {
-    //   throw new Error("Invalid 'a' value. 'a' must be coprime with 26.");
-    // }
     this.a = a;
-    this.b = b;
+    this.b = b % 26; // Max char 26
   }
 
   gcd(a, b) {

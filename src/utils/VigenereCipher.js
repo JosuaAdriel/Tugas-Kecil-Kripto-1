@@ -27,8 +27,8 @@ class VigenereCipher {
   decrypt(ciphertext) {
     let result = "";
     ciphertext = ciphertext.toUpperCase().replace(/[^A-Z]/g, "");
-    for (let i = 0, j = 0; i < ciphertex.length; i++) {
-      const cipherCharCode = ciphertex.charCodeAt(i);
+    for (let i = 0, j = 0; i < ciphertext.length; i++) {
+      const cipherCharCode = ciphertext.charCodeAt(i);
       if (cipherCharCode >= 65 && cipherCharCode <= 90) {
         const keyCharCode = this.key.charCodeAt(j % this.key.length) - 65;
         const decryptedCharCode =
@@ -36,7 +36,7 @@ class VigenereCipher {
         result += String.fromCharCode(decryptedCharCode);
         j++;
       } else {
-        result += ciphertex[i];
+        result += ciphertext[i];
       }
     }
     return result;

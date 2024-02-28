@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AffineCipher from "../utils/AffineCipher.js";
 import ReaderTxt from "../components/ReaderTxt.jsx";
 import CipherTextComponent from "../components/CipherTextComponent.jsx";
@@ -9,6 +9,8 @@ const AffinePage = () => {
   const [a, setA] = useState(1);
   const [b, setB] = useState(1);
   const [ciphertext, setCiphertext] = useState("");
+  const decrementButtonRef = useRef(null);
+  const incrementButtonRef = useRef(null);
 
   const affine = new AffineCipher(a, b);
 
@@ -25,6 +27,24 @@ const AffinePage = () => {
     return a;
   };
 
+  const handleBlurA = (e) => {
+    if (
+      e.relatedTarget !== decrementButtonRef.current &&
+      e.relatedTarget !== incrementButtonRef.current
+    ) {
+      setA((prevValue) => {
+        if (!isCoprimeWith26(prevValue)) {
+          let newValue = prevValue + 1;
+          while (!isCoprimeWith26(newValue)) {
+            newValue++;
+          }
+          return newValue;
+        } else {
+          return prevValue;
+        }
+      });
+    }
+  };
   const handleChangeA = (e) => {
     const inputValue = parseInt(e.target.value, 10);
     if (!isNaN(inputValue)) {
@@ -112,9 +132,18 @@ const AffinePage = () => {
               <div className="input-group">
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <label htmlFor="a">a:</label>
-                  <button onClick={handleDecrementA}>-</button>
-                  <input id="a" value={a} onChange={handleChangeA} />
-                  <button onClick={handleIncrementA}>+</button>
+                  <button ref={decrementButtonRef} onClick={handleDecrementA}>
+                    -
+                  </button>
+                  <input
+                    id="a"
+                    value={a}
+                    onChange={handleChangeA}
+                    onBlur={handleBlurA}
+                  />
+                  <button ref={incrementButtonRef} onClick={handleIncrementA}>
+                    +
+                  </button>
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <label htmlFor="b">b:</label>
