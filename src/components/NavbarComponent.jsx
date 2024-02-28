@@ -21,7 +21,7 @@ const NavbarComponent = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown
-              className="nav-link1"
+              className="nav-link"
               title="Ciphers"
               id="basic-nav-dropdown"
               align="end"

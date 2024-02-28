@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
 }
 
 .navbar .nav-link:hover{
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .navbar .nav-link.active {
@@ -59,7 +59,7 @@ body::-webkit-scrollbar {
     color: var(--primary-color);
 }
 #basic-navbar-nav {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 /*STYLE NAVBAR*/
 
@@ -151,7 +151,7 @@ body::-webkit-scrollbar {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     border-radius: 5px;
     resize: none;
   }

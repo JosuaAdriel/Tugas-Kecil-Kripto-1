@@ -18,16 +18,14 @@ function ReaderFile({ setFile, setFileName }) {
   }
 
   return (
-    <div className="">
+    <div className="input-group">
       <label htmlFor="fileUpload">Upload File</label>
-      <div className="">
-        <input
-          id="fileUpload"
-          onClick={(e) => (e.target.value = null)}
-          onChange={(e) => onChange(e)}
-          type="file"
-        />
-      </div>
+      <input
+        id="fileUpload"
+        onClick={(e) => (e.target.value = null)}
+        onChange={(e) => onChange(e)}
+        type="file"
+      />
     </div>
   );
 }
