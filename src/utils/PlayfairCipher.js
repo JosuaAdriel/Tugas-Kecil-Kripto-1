@@ -1,28 +1,25 @@
+//PlayfairCipher.js
 class PlayfairCipher {
   constructor(keyword) {
-    // Remove duplicate letters from the keyword and append remaining letters of the alphabet
     this.keyword = keyword.toUpperCase().replace(/J/g, "I").replace(/ /g, "");
     this.keySquare = this.generateKeySquare();
   }
 
   generateKeySquare() {
     let keySquare = "";
-    const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; // 'J' is replaced with 'I'
+    const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"; //ganti J dengan I
     let keyword = this.keyword;
 
-    // Remove duplicate letters from the keyword
     keyword = keyword
       .split("")
       .filter((char, index, self) => self.indexOf(char) === index)
       .join("");
 
-    // Append remaining letters of the alphabet after the keyword
     keyword += alphabet
       .split("")
       .filter((char) => !keyword.includes(char))
       .join("");
 
-    // Fill the key square row-by-row
     for (let i = 0; i < keyword.length; i++) {
       if (!keySquare.includes(keyword[i])) {
         keySquare += keyword[i];
@@ -41,12 +38,11 @@ class PlayfairCipher {
 
     for (let i = 0; i < plainText.length; i += 2) {
       let char1 = plainText[i];
-      let char2 = plainText[i + 1] || "X"; // If odd number of characters, append 'X'
+      let char2 = plainText[i + 1] || "X"; 
 
-      // If both characters in the digram are the same, insert 'X' as the second character
       if (char1 === char2) {
         char2 = "X";
-        i--; // Decrement i so that the same character is used again
+        i--;
       }
 
       let index1 = this.keySquare.indexOf(char1);
@@ -79,11 +75,9 @@ class PlayfairCipher {
     for (let i = 0; i < cipherText.length; i += 2) {
       let char1 = cipherText[i];
       let char2 = cipherText[i + 1] || "X";
-
-      // If both characters in the digram are the same, insert 'X' as the second character
       if (char1 === char2) {
         char2 = "X";
-        i--; // Decrement i so that the same character is used again
+        i--;
       }
 
       let index1 = this.keySquare.indexOf(char1);

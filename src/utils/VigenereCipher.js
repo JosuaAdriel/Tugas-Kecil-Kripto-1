@@ -1,12 +1,12 @@
+//VigenereCipher.js
 class VigenereCipher {
   constructor(key) {
-    this.key = key.toUpperCase().replace(/[^A-Z]/g, ""); // Convert key to uppercase
+    this.key = key.toUpperCase().replace(/[^A-Z]/g, ""); // ubah ke uppercase dan bersihkan dari karakter selain A-Z
   }
 
   encrypt(plaintext) {
     let result = "";
-    plaintext = plaintext.toUpperCase().replace(/[^A-Z]/g, ""); // Convert plaintext to uppercase
-    // return plaintext;
+    plaintext = plaintext.toUpperCase().replace(/[^A-Z]/g, "");
     for (let i = 0, j = 0; i < plaintext.length; i++) {
       const plainCharCode = plaintext.charCodeAt(i);
       if (plainCharCode >= 65 && plainCharCode <= 90) {
@@ -19,8 +19,6 @@ class VigenereCipher {
         result += plaintext[i];
       }
     }
-    // //const encodedChipherText = btoa(result);
-    // return encodedChipherText;
     return result;
   }
 

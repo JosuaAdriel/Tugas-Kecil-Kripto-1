@@ -1,3 +1,4 @@
+//PlayfairPage.jsx
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import PlayfairCipher from "../utils/PlayfairCipher.js"; //Ganti import metode disini
@@ -48,7 +49,7 @@ const PlayfairPage = () => {
                 onChange={(e) =>
                   setKey(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
                 }
-                rows={1} // Set the number of rows for the textarea
+                rows={1}
               />
             </div>
             <div>

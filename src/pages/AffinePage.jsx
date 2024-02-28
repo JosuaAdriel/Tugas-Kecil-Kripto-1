@@ -1,3 +1,4 @@
+//AffinePage.jsx
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useRef } from "react";
 import AffineCipher from "../utils/AffineCipher.js";
@@ -15,12 +16,11 @@ const AffinePage = () => {
   const affine = new AffineCipher(a, b);
 
   const isCoprimeWith26 = (num) => {
-    // Check if 'a' is coprime with 26
+    // cek apakah a relatif prima dengan 26
     return gcd(num, 26) === 1;
   };
 
   const gcd = (a, b) => {
-    // Calculate the greatest common divisor using Euclid's algorithm
     while (b !== 0) {
       [a, b] = [b, a % b];
     }

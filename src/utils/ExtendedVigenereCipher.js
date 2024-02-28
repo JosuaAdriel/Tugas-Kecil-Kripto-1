@@ -1,11 +1,11 @@
+//Extended Vigenere Cipher.js
 class ExtendedVigenereCipher {
   constructor(key) {
-    this.key = key; // Convert key to uppercase
+    this.key = key; 
   }
 
   encrypt(plaintext) {
     let result = "";
-    // No need to convert plaintext to uppercase or remove non-alphabetic characters
     for (let i = 0, j = 0; i < plaintext.length; i++) {
       const plainCharCode = plaintext.charCodeAt(i);
       const keyCharCode = this.key.charCodeAt(j % this.key.length);
@@ -21,7 +21,7 @@ class ExtendedVigenereCipher {
     for (let i = 0, j = 0; i < ciphertext.length; i++) {
       const cipherCharCode = ciphertext.charCodeAt(i);
       const keyCharCode = this.key.charCodeAt(j % this.key.length);
-      const decryptedCharCode = (cipherCharCode - keyCharCode + 256) % 256; // Ensure the result is within the range 0-255
+      const decryptedCharCode = (cipherCharCode - keyCharCode + 256) % 256; 
       result += String.fromCharCode(decryptedCharCode);
       j++;
     }
@@ -29,7 +29,6 @@ class ExtendedVigenereCipher {
   }
   encryptFile(file) {
     let result = new Uint8Array(file.length);
-    // No need to convert plaintext to uppercase or remove non-alphabetic characters
     for (let i = 0, j = 0; i < file.length; i++) {
       const plainCharCode = file[i];
       const keyCharCode = this.key.charCodeAt(j % this.key.length);
@@ -45,7 +44,7 @@ class ExtendedVigenereCipher {
     for (let i = 0, j = 0; i < file.length; i++) {
       const cipherCharCode = file[i];
       const keyCharCode = this.key.charCodeAt(j % this.key.length);
-      const decryptedCharCode = (cipherCharCode - keyCharCode + 256) % 256; // Ensure the result is within the range 0-255
+      const decryptedCharCode = (cipherCharCode - keyCharCode + 256) % 256;
       result[i] = decryptedCharCode;
       j++;
     }

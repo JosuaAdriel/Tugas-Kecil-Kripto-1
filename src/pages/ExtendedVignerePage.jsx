@@ -1,3 +1,4 @@
+// ExtendedVignerePage.jsx
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import ExtendedVigenereCipher from "../utils/ExtendedVigenereCipher.js";
@@ -38,7 +39,7 @@ const ExtendedVignerePage = () => {
     a.download =
       fileName.split(".")[0] +
       "_encrypted." +
-      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); // Set desired file name here
+      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2);
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -52,7 +53,7 @@ const ExtendedVignerePage = () => {
     a.download =
       fileName.split(".")[0] +
       "_decrypted." +
-      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); // Set desired file name here
+      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); 
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -93,7 +94,7 @@ const ExtendedVignerePage = () => {
                 id="key"
                 value={key}
                 onChange={(e) => setKey(e.target.value)}
-                rows={1} // Set the number of rows for the textarea
+                rows={1}
               />
             </div>
           </Col>

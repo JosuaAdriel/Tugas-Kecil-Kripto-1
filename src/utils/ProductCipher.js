@@ -1,3 +1,4 @@
+//ProductCipher.js
 class ProductCipher {
   constructor(encryptionMethods) {
     this.encryptionMethods = encryptionMethods;

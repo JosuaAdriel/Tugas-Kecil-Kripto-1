@@ -1,9 +1,10 @@
+//ProductPage.jsx
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import VigenereCipher from "../utils/VigenereCipher.js"; //Ganti import metode disini
+import VigenereCipher from "../utils/VigenereCipher.js"; //import metode 1: Vigenere
 import CipherTextComponent from "../components/CipherTextComponent.jsx";
 import ReaderTxt from "../components/ReaderTxt.jsx";
-import TranspositionCipher from "../utils/TranspositionCipher.js";
+import TranspositionCipher from "../utils/TranspositionCipher.js"; //import metode 2: Transposition
 import ProductCipher from "../utils/ProductCipher.js";
 
 const ProductPage = () => {

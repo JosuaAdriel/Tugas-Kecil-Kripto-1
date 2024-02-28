@@ -1,3 +1,4 @@
+//AffineCipher.js
 class AffineCipher {
   constructor(a, b) {
     this.a = a;
