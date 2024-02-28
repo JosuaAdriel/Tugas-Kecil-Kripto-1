@@ -1,6 +1,3 @@
-import TranspositionCipher from "./TranspositionCipher.js";
-import VigenereCipher from "./VigenereCipher.js";
-
 class ProductCipher {
   constructor(encryptionMethods) {
     this.encryptionMethods = encryptionMethods;
@@ -23,17 +20,4 @@ class ProductCipher {
   }
 }
 
-// Define encryption methods
-const vigenere = new VigenereCipher("kecil");
-const transposition = new TranspositionCipher(2);
-const product = new ProductCipher([vigenere, transposition]);
-
-// Encrypt plaintext using superencryption
-const plaintext = "cepusganteng";
-const ciphertext = product.encrypt(plaintext);
-console.log("Encrypted:", ciphertext);
-
-// Decrypt ciphertext using superencryption
-const decryptedText = product.decrypt(ciphertext);
-console.log("Decrypted:", decryptedText);
 export default ProductCipher;
