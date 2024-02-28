@@ -2,13 +2,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import ExtendedVigenereCipher from "../utils/ExtendedVigenereCipher.js";
 import ReaderFile from "../components/ReaderFile.jsx";
+import CipherTextComponent from "../components/CipherTextComponent.jsx";
 
 const ExtendedVignerePage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
-  const [encryptedText, setEncryptedText] = useState("");
-  const [decryptedText, setDecryptedText] = useState("");
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState();
   const [encryptedFile, setEncryptedFile] = useState();
@@ -17,28 +16,18 @@ const ExtendedVignerePage = () => {
 
   const extendedVigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
-  const encrypt = () => {
-    if (selected == "Text") {
-      const encryptedText = extendedVigenere.encrypt(plaintext); //tinggal ganti metode nya disini
-      setEncryptedText(encryptedText);
-    } else {
-      // Encrypt file
-      const encryptedContent = extendedVigenere.encryptFile(file);
-      setEncryptedFile(encryptedContent);
-      setDecryptedFile(null);
-    }
+  const encryptFile = () => {
+    // Encrypt file
+    const encryptedContent = extendedVigenere.encryptFile(file);
+    setEncryptedFile(encryptedContent);
+    setDecryptedFile(null);
   };
 
-  const decrypt = () => {
-    if (selected == "Text") {
-      const decryptedText = extendedVigenere.decrypt(ciphertext); //tinggal ganti metode nya disini
-      setDecryptedText(decryptedText);
-    } else {
-      // Decrypt file
-      const decryptedContent = extendedVigenere.decryptFile(file);
-      setDecryptedFile(decryptedContent);
-      setEncryptedFile(null);
-    }
+  const decryptFile = () => {
+    // Decrypt file
+    const decryptedContent = extendedVigenere.decryptFile(file);
+    setDecryptedFile(decryptedContent);
+    setEncryptedFile(null);
   };
 
   const downloadEncryptedFile = () => {
@@ -106,62 +95,20 @@ const ExtendedVignerePage = () => {
               </div>
             </Col>
             {selected == "Text" ? (
-              <>
-                <Col className="col-spacing">
-                  <div className="input-group">
-                    <label htmlFor="plaintext">Plaintext:</label>
-                    <textarea
-                      id="plaintext"
-                      value={plaintext}
-                      onChange={(e) => setPlaintext(e.target.value)}
-                      rows={8} // Set the number of rows for the textarea
-                    />
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="encryptedPlainText">Encrypted Text:</label>
-                    <textarea
-                      id="encryptedPlainTextt"
-                      value={encryptedText}
-                      readOnly
-                      rows={8}
-                    />
-                  </div>
-                  <div className="button-group">
-                    <button onClick={encrypt}>Encrypt</button>
-                  </div>
-                </Col>
-                <Col className="col-spacing">
-                  <div className="input-group">
-                    <label htmlFor="ciphertext">Ciphertext:</label>
-                    <textarea
-                      id="ciphertext"
-                      value={ciphertext}
-                      onChange={(e) => setCiphertext(e.target.value)}
-                      rows={8}
-                    />
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="decryptedText">Decrypted Ciphertext:</label>
-                    <textarea
-                      id="decryptedText"
-                      value={decryptedText}
-                      readOnly
-                      rows={8}
-                    />
-                  </div>
-                  <div className="button-group">
-                    <button onClick={decrypt}>Decrypt</button>
-                  </div>
-                </Col>
-              </>
+              <CipherTextComponent
+                plaintext={plaintext}
+                setPlaintext={setPlaintext}
+                ciphertext={ciphertext}
+                setCiphertext={setCiphertext}
+                cipher={extendedVigenere}
+              />
             ) : (
               <>
-                {" "}
                 <Col className="col-spacing">
                   <div className="button-group">
-                    <button onClick={encrypt}>Encrypt File</button>
+                    <button onClick={encryptFile}>Encrypt File</button>
                     <p>or</p>
-                    <button onClick={decrypt}>Decrypt File</button>
+                    <button onClick={decryptFile}>Decrypt File</button>
                   </div>
                 </Col>
               </>

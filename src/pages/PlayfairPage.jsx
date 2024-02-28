@@ -2,25 +2,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import PlayfairCipher from "../utils/PlayfairCipher.js"; //Ganti import metode disini
 import ReaderTxt from "../components/ReaderTxt.jsx";
+import CipherTextComponent from "../components/CipherTextComponent.jsx";
 
 const PlayfairPage = () => {
   const [plaintext, setPlaintext] = useState("");
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
-  const [encryptedText, setEncryptedText] = useState("");
-  const [decryptedText, setDecryptedText] = useState("");
 
   const playfair = new PlayfairCipher(key); //tinggal ganti metode nya disini
-
-  const encrypt = () => {
-    const encryptedText = playfair.encrypt(plaintext); //tinggal ganti metode nya disini
-    setEncryptedText(encryptedText);
-  };
-
-  const decrypt = () => {
-    const decryptedText = playfair.decrypt(ciphertext); //tinggal ganti metode nya disini
-    setDecryptedText(decryptedText);
-  };
 
   return (
     <div className="homepage">
@@ -56,52 +45,13 @@ const PlayfairPage = () => {
                 />
               </div>
             </Col>
-            <Col className="col-spacing">
-              <div className="input-group">
-                <label htmlFor="plaintext">Plaintext:</label>
-                <textarea
-                  id="plaintext"
-                  value={plaintext}
-                  onChange={(e) => setPlaintext(e.target.value)}
-                  rows={8} // Set the number of rows for the textarea
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="encryptedPlainText">Encrypted Text:</label>
-                <textarea
-                  id="encryptedPlainTextt"
-                  value={encryptedText}
-                  readOnly
-                  rows={8}
-                />
-              </div>
-              <div className="button-group">
-                <button onClick={encrypt}>Encrypt</button>
-              </div>
-            </Col>
-            <Col className="col-spacing">
-              <div className="input-group">
-                <label htmlFor="ciphertext">Ciphertext:</label>
-                <textarea
-                  id="ciphertext"
-                  value={ciphertext}
-                  onChange={(e) => setCiphertext(e.target.value)}
-                  rows={8}
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="decryptedText">Decrypted Text:</label>
-                <textarea
-                  id="decryptedText"
-                  value={decryptedText}
-                  readOnly
-                  rows={8}
-                />
-              </div>
-              <div className="button-group">
-                <button onClick={decrypt}>Decrypt</button>
-              </div>
-            </Col>
+            <CipherTextComponent
+              plaintext={plaintext}
+              setPlaintext={setPlaintext}
+              ciphertext={ciphertext}
+              setCiphertext={setCiphertext}
+              cipher={playfair}
+            />
           </Row>
           <Row className="download d-flex align-items-center">
             <p>Download Cipher Text File Disini.</p>
