@@ -19,5 +19,4 @@ class ProductCipher {
     return plaintext;
   }
 }
-
 export default ProductCipher;

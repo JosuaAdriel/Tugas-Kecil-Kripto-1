@@ -37,9 +37,7 @@ const PlayfairPage = () => {
                   id="key"
                   value={key}
                   onChange={(e) =>
-                    setKey(
-                      e.target.value.toUpperCase().replace(/[^A-Z\s]/g, "")
-                    )
+                    setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ""))
                   }
                   rows={1} // Set the number of rows for the textarea
                 />
