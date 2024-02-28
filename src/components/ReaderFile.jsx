@@ -1,16 +1,15 @@
-function ReaderFile({ setPlaintext, setCiphertext }) {
+function ReaderFile({ setFile, setFileName }) {
   function onChange(event) {
     var file = event.target.files[0];
     if (!file) return; // Ensure a file is selected
 
     const reader = new FileReader();
-
-    reader.readAsDataURL(file);
+    setFileName(file.name);
+    reader.readAsArrayBuffer(file); // Read file as array buffer to handle binary data
 
     reader.onload = (event) => {
-      const fileContent = event.target.result; // File content as string
-      setPlaintext(fileContent); // Do something with the string
-      setCiphertext(fileContent);
+      const fileContent = new Uint8Array(event.target.result); // File content as Uint8Array
+      setFile(fileContent);
     };
 
     reader.onerror = (error) => {

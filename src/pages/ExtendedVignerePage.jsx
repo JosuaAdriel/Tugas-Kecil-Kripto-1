@@ -9,9 +9,11 @@ const ExtendedVignerePage = () => {
   const [ciphertext, setCiphertext] = useState("");
   const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
+  const [file, setFile] = useState();
+  const [fileName, setFileName] = useState();
   const [encryptedFile, setEncryptedFile] = useState();
   const [decryptedFile, setDecryptedFile] = useState();
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("Text");
 
   const extendedVigenere = new ExtendedVigenereCipher(key); //tinggal ganti metode nya disini
 
@@ -21,7 +23,9 @@ const ExtendedVignerePage = () => {
       setEncryptedText(encryptedText);
     } else {
       // Encrypt file
-      // setEncryptedFile(...)
+      const encryptedContent = extendedVigenere.encryptFile(file);
+      setEncryptedFile(encryptedContent);
+      setDecryptedFile(null);
     }
   };
 
@@ -31,8 +35,34 @@ const ExtendedVignerePage = () => {
       setDecryptedText(decryptedText);
     } else {
       // Decrypt file
-      // setDecryptedFile(...)
+      const decryptedContent = extendedVigenere.decryptFile(file);
+      setDecryptedFile(decryptedContent);
+      setEncryptedFile(null);
     }
+  };
+
+  const downloadEncryptedFile = () => {
+    const blob = new Blob([encryptedFile]);
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download =
+      fileName.split(".")[0] + "_encrypted." + fileName.split(".")[1]; // Set desired file name here
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+  };
+
+  const downloadDecryptedFile = () => {
+    const blob = new Blob([decryptedFile]);
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download =
+      fileName.split(".")[0] + "_decrypted." + fileName.split(".")[1]; // Set desired file name here
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
   };
 
   return (
@@ -49,12 +79,20 @@ const ExtendedVignerePage = () => {
                   kata kunci.
                 </p>
               </div>
+              <div className="input-group">
+                <label htmlFor="selectOption">Select input source:</label>
+                <select
+                  id="selectOption"
+                  value={selected}
+                  onChange={(e) => setSelected(e.target.value)}
+                >
+                  <option value="Text">Text</option>
+                  <option value="File">File</option>
+                </select>
+              </div>
               <div className="reader">
                 {selected != "Text" && (
-                  <ReaderFile
-                    setPlaintext={setPlaintext}
-                    setCiphertext={setCiphertext}
-                  />
+                  <ReaderFile setFile={setFile} setFileName={setFileName} />
                 )}
               </div>
               <div className="input-group">
@@ -122,10 +160,7 @@ const ExtendedVignerePage = () => {
                 <Col className="col-spacing">
                   <div className="button-group">
                     <button onClick={encrypt}>Encrypt File</button>
-                  </div>
-                </Col>
-                <Col className="col-spacing">
-                  <div className="button-group">
+                    <p>or</p>
                     <button onClick={decrypt}>Decrypt File</button>
                   </div>
                 </Col>
@@ -133,7 +168,22 @@ const ExtendedVignerePage = () => {
             )}
           </Row>
           <Row className="download d-flex align-items-center">
-            {selected == "Text" && <p>Download Cipher Text File Disini.</p>}
+            {selected !== "Text" && encryptedFile && (
+              <div>
+                <p>File Encrypted!</p>
+                <button onClick={downloadEncryptedFile}>
+                  Download Encrypted File
+                </button>
+              </div>
+            )}
+            {selected !== "Text" && decryptedFile && (
+              <div>
+                <p>File Decrypted!</p>
+                <button onClick={downloadDecryptedFile}>
+                  Download Decrypted File
+                </button>
+              </div>
+            )}
           </Row>
         </Container>
       </header>
