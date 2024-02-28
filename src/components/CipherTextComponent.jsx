@@ -9,6 +9,7 @@ function CipherTextComponent({
   ciphertext,
   setCiphertext,
   cipher,
+  disabled,
 }) {
   const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
@@ -112,7 +113,9 @@ function CipherTextComponent({
           />
         </div>
         <div className="button-group">
-          <button onClick={encrypt}>Encrypt</button>
+          <button disabled={disabled} onClick={encrypt}>
+            Encrypt
+          </button>
         </div>
         {encryptedText && (
           <Row className="download">
@@ -169,7 +172,9 @@ function CipherTextComponent({
           />
         </div>
         <div className="button-group">
-          <button onClick={decrypt}>Decrypt</button>
+          <button disabled={disabled} onClick={decrypt}>
+            Decrypt
+          </button>
         </div>
         {decryptedText && (
           <Row className="download">

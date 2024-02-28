@@ -53,7 +53,7 @@ const ExtendedVignerePage = () => {
     a.download =
       fileName.split(".")[0] +
       "_decrypted." +
-      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); 
+      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2);
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -105,15 +105,28 @@ const ExtendedVignerePage = () => {
               ciphertext={ciphertext}
               setCiphertext={setCiphertext}
               cipher={extendedVigenere}
+              disabled={key.length <= 0}
             />
           ) : (
             <>
               <Col className="col-spacing">
                 <Row className="">
                   <div className="button-group">
-                    <button onClick={encryptFile}>Encrypt File</button>
+                    <button
+                      disabled={key.length <= 0}
+                      onClick={encryptFile}
+                      className="disabled:cursor-not-allowed"
+                    >
+                      Encrypt File
+                    </button>
                     <p>or</p>
-                    <button onClick={decryptFile}>Decrypt File</button>
+                    <button
+                      disabled={key.length <= 0}
+                      onClick={decryptFile}
+                      className="disabled:cursor-not-allowed"
+                    >
+                      Decrypt File
+                    </button>
                   </div>
                 </Row>
                 <Row className="file-result">

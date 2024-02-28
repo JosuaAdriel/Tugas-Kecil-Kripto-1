@@ -75,6 +75,7 @@ const PlayfairPage = () => {
             ciphertext={ciphertext}
             setCiphertext={setCiphertext}
             cipher={playfair}
+            disabled={key.length <= 0}
           />
         </Row>
       </Container>

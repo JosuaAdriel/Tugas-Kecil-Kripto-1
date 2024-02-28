@@ -48,6 +48,7 @@ const VigenerePage = () => {
             ciphertext={ciphertext}
             setCiphertext={setCiphertext}
             cipher={vigenere}
+            disabled={key.length <= 0}
           />
         </Row>
       </Container>

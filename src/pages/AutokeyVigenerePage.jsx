@@ -48,6 +48,7 @@ const AutoKeyVigenerePage = () => {
             ciphertext={ciphertext}
             setCiphertext={setCiphertext}
             cipher={autoKeyVigenere}
+            disabled={key.length <= 0}
           />
         </Row>
       </Container>

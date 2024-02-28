@@ -61,6 +61,7 @@ const ProductPage = () => {
             ciphertext={ciphertext}
             setCiphertext={setCiphertext}
             cipher={product}
+            disabled={key1.length <= 0 || key2 <= 0}
           />
         </Row>
       </Container>
