@@ -49,7 +49,7 @@ function CipherTextComponent({
 
   return (
     <>
-      <Col className="col-spacing">
+      <Col>
         <div className="input-group">
           <div style={{ width: "100%" }} className="flex justify-between">
             <label htmlFor="plaintext">Plaintext:</label>

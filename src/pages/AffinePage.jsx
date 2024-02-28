@@ -135,16 +135,25 @@ const AffinePage = () => {
                   style={{ display: "flex", alignItems: "center" }}
                   className=""
                 >
-                  <button ref={decrementButtonRef} onClick={handleDecrementA}>
+                  <button
+                    className="incDecButton"
+                    ref={decrementButtonRef}
+                    onClick={handleDecrementA}
+                  >
                     -
                   </button>
                   <input
+                    className="mx-2"
                     id="a"
                     value={a}
                     onChange={handleChangeA}
                     onBlur={handleBlurA}
                   />
-                  <button ref={incrementButtonRef} onClick={handleIncrementA}>
+                  <button
+                    className="incDecButton"
+                    ref={incrementButtonRef}
+                    onClick={handleIncrementA}
+                  >
                     +
                   </button>
                 </div>
@@ -155,9 +164,18 @@ const AffinePage = () => {
                   style={{ display: "flex", alignItems: "center" }}
                   className=""
                 >
-                  <button onClick={handleDecrementB}>-</button>
-                  <input id="b" value={b} onChange={handleChangeB} />
-                  <button onClick={handleIncrementB}>+</button>
+                  <button className="incDecButton" onClick={handleDecrementB}>
+                    -
+                  </button>
+                  <input
+                    className="mx-2"
+                    id="b"
+                    value={b}
+                    onChange={handleChangeB}
+                  />
+                  <button className="incDecButton" onClick={handleIncrementB}>
+                    +
+                  </button>
                 </div>
               </div>
             </div>

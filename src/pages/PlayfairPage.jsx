@@ -11,6 +11,16 @@ const PlayfairPage = () => {
 
   const playfair = new PlayfairCipher(key); //tinggal ganti metode nya disini
 
+  const organizeIntoMatrix = (array) => {
+    let matrix = [];
+    for (let i = 0; i < array.length; i += 5) {
+      matrix.push(array.slice(i, i + 5));
+    }
+    return matrix;
+  };
+
+  const matrixSquare = organizeIntoMatrix(playfair.keySquare);
+
   return (
     <div className="homepage">
       <Container>
@@ -40,6 +50,22 @@ const PlayfairPage = () => {
                 }
                 rows={1} // Set the number of rows for the textarea
               />
+            </div>
+            <div>
+              <h3>Key Square:</h3>
+              {matrixSquare.map((row, rowIndex) => (
+                <div key={rowIndex} className="flex justify-center">
+                  {row.split("").map((element, columnIndex) => (
+                    <div
+                      className="flex justify-center items-center border border-black"
+                      key={columnIndex}
+                      style={{ height: 40, width: 40, margin: 2 }}
+                    >
+                      <p className="w-full m-0">{element}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </Col>
           <CipherTextComponent

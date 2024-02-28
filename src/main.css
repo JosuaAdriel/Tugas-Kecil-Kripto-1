@@ -40,6 +40,10 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 
+.justify-center{
+    justify-content: center;
+}
+
 .navtes{
     position: absolute;
 }
@@ -65,6 +69,8 @@ body::-webkit-scrollbar {
 
 /*STYLE HEADER*/
 .homepage{
+    display: flex;
+    align-items: center;
     margin-top: 120px;
     min-height: calc(100vh - 120px);
     background: #c6ffdd; 
@@ -88,7 +94,6 @@ body::-webkit-scrollbar {
     color: var(--color-text);
 }
 .homepage .header-box p{
-    font-size: 1.2rem;
     font-weight: 500;
     color: var(--color-text);
     display: flex;
@@ -119,9 +124,6 @@ body::-webkit-scrollbar {
 .homepage .download{
     display: flex;
     justify-content: center;
-}
-.col-spacing{
-    padding: 60px;
 }
 
 .reader{
@@ -176,5 +178,12 @@ body::-webkit-scrollbar {
   
   .button-group button:active {
     background-color: #004080;
+  }
+
+  .incDecButton {
+    padding: 6px 12px;
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
   }
 /*STYLE INPUT*/

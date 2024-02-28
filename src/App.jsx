@@ -11,17 +11,15 @@ function App() {
   return (
     <div>
       <NavbarComponent />
-      <div className="">
-        <Routes>
-          <Route path="/" Component={HomePage} />
-          <Route path="/vignere" Component={VignerePage} />
-          <Route path="/extended-vignere" Component={ExtendedVignerePage} />
-          <Route path="/playfair" Component={PlayfairPage} />
-          <Route path="/product" Component={ProductPage} />
-          <Route path="/affine" Component={AffinePage} />
-          <Route path="/autokey-vigenere" Component={AutokeyVigenerePage} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/vignere" Component={VignerePage} />
+        <Route path="/extended-vignere" Component={ExtendedVignerePage} />
+        <Route path="/playfair" Component={PlayfairPage} />
+        <Route path="/product" Component={ProductPage} />
+        <Route path="/affine" Component={AffinePage} />
+        <Route path="/autokey-vigenere" Component={AutokeyVigenerePage} />
+      </Routes>
     </div>
   );
 }
