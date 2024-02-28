@@ -151,7 +151,9 @@ function CipherTextComponent({
         </div>
         <div className="input-group">
           <div style={{ width: "100%" }} className="flex justify-between">
-            <label htmlFor="decryptedText">Decrypted Ciphertext:</label>
+            <label htmlFor="decryptedText">
+              Decrypted Ciphertext (Plaintext):
+            </label>
             <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
               <FaRegCopy
                 style={{ cursor: "pointer" }}
@@ -173,7 +175,7 @@ function CipherTextComponent({
           <Row className="download">
             <p>File Decrypted!</p>
             <button onClick={downloadDecryptedText}>
-              Download decrypted.txt file
+              Download decrypted.txt
             </button>
           </Row>
         )}

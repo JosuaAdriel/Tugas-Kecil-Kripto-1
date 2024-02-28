@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
     margin-bottom: 5px!important;
 }
 .download p{
-    margin-bottom: 0;
+    margin-bottom: 0!important;
 }
 
 .download button {
