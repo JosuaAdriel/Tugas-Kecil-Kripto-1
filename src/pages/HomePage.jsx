@@ -18,7 +18,7 @@ const HomePage = () => {
                 18221162 Ceavin Rufus De Prayer Purba
               </li>
             </Col>
-            <Col>
+            <Col className="conan-image">
               <img src={HeroImage} alt="hero-img" />
             </Col>
           </Row>

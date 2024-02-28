@@ -82,6 +82,13 @@
 
 
 /*STYLE CONTENT*/
+.conan-image {
+    display: flex;
+    justify-content: center;
+}
+.conan-image img {
+    width: 60%!important;
+}
 .homepage .download{
     display: flex;
     justify-content: center;
