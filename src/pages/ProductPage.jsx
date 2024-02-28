@@ -37,14 +37,16 @@ const ProductPage = () => {
                 />
               </div>
               <div className="input-group">
-                <label htmlFor="key1">Key 1:</label>
+                <label htmlFor="key1">Key 1 (Vigenere cipher key):</label>
                 <input
                   id="key1"
                   value={key1}
                   type="text"
-                  onChange={(e) => setKey1(e.target.value)}
+                  onChange={(e) =>
+                    setKey1(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
+                  }
                 />
-                <label htmlFor="key2">Key 2:</label>
+                <label htmlFor="key2">Key 2 (Transposition cipher key):</label>
                 <input
                   id="key2"
                   value={key2}

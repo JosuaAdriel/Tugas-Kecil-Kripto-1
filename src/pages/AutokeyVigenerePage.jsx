@@ -19,7 +19,10 @@ const AutoKeyVigenerePage = () => {
             <Col className="col-spacing">
               <div className="">
                 <h1>Auto-key Vigenere Cipher</h1>
-                <p>Metode menyandikan teks, variasi dari Vigenere Cipher, yang menggunakan kata kunci sebagai bagian dari teks terenkripsi.</p>
+                <p>
+                  Metode menyandikan teks, variasi dari Vigenere Cipher, yang
+                  menggunakan kata kunci sebagai bagian dari teks terenkripsi.
+                </p>
               </div>
               <div className="reader">
                 <ReaderTxt
@@ -33,7 +36,7 @@ const AutoKeyVigenerePage = () => {
                   id="key"
                   value={key}
                   onChange={(e) =>
-                    setKey(e.target.value.toUpperCase().replace(/[^A-Z]/g, ""))
+                    setKey(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
                   }
                   rows={1} // Set the number of rows for the textarea
                 />

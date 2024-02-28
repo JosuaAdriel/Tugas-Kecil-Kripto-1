@@ -92,7 +92,7 @@ body::-webkit-scrollbar {
     color: var(--color-text);
     display: flex;
     justify-content: center;
-    text-align: justify;
+    margin-bottom: 2rem;
 }
 .homepage .header-box .p2{
     font-size: 1.2rem;
