@@ -22,7 +22,7 @@ const NavbarComponent = () => {
           <Nav className="ms-auto">
             <NavDropdown
               className="nav-link"
-              title="Ciphers"
+              title="Select Cipher"
               id="basic-nav-dropdown"
               align="end"
             >
