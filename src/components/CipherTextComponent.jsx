@@ -80,9 +80,9 @@ function CipherTextComponent({
         </div>
         {encryptedText && (
           <Row className="download">
-            <p>File Encrypted!</p>
+            <p>UTF-8 Encrypted File is Ready!</p>
             <button onClick={downloadEncryptedText}>
-              Download encrypted.txt file
+              Download encrypted.txt
             </button>
           </Row>
         )}

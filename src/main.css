@@ -18,6 +18,10 @@
     padding: 0 60px;
 }
 
+.navtes{
+    position: absolute;
+}
+
 .navbar .nav-link{
     padding: 5px 0px 5px 10px;
     font-weight: 500;
@@ -39,7 +43,7 @@
 
 /*STYLE HEADER*/
 .homepage{
-    margin-top: 120px;
+    padding-top: 120px;
     background: #c6ffdd; 
     background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
     background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);
@@ -87,7 +91,7 @@
     justify-content: center;
 }
 .conan-image img {
-    width: 60%!important;
+    margin-bottom: 150px;
 }
 .homepage .download{
     display: flex;

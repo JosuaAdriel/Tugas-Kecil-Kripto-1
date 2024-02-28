@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 const NavbarComponent = () => {
   return (
-    <div>
+    <div className="navtes">
       <Navbar
-        style={{ backgroundColor: "#fff" }}
+        // style={{ backgroundColor: "#fff" }}
         expand="lg"
         fixed="top"
         className="navbar"

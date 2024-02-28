@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import HeroImage from "../assets/img/HeroImage.png";
+import HeroImage2 from "../assets/img/HeroImage2.png";
 const HomePage = () => {
   return (
     <div className="homepage">
