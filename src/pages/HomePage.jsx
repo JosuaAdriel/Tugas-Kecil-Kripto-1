@@ -11,8 +11,12 @@ const HomePage = () => {
               <h1>Tugas MK II403</h1>
               <h1>Kriptografi dan Koding</h1>
               <h3>Presented By:</h3>
-              <h2>18221065 Josua Adriel Sinabutar</h2>
-              <h2>18221162 Ceavin Rufus De Prayer Purba</h2>
+              <li style={{ listStyle: "none" }}>
+                18221065 Josua Adriel Sinabutar
+              </li>
+              <li style={{ listStyle: "none" }}>
+                18221162 Ceavin Rufus De Prayer Purba
+              </li>
             </Col>
             <Col>
               <img src={HeroImage} alt="hero-img" />

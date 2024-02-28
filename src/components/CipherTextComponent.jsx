@@ -54,16 +54,25 @@ function CipherTextComponent({
             id="plaintext"
             value={plaintext}
             onChange={(e) => setPlaintext(e.target.value)}
-            rows={8} // Set the number of rows for the textarea
+            rows={6} // Set the number of rows for the textarea
           />
         </div>
         <div className="input-group">
-          <label htmlFor="encryptedPlainText">Encrypted Text:</label>
+          <label htmlFor="encryptedPlainTextt">Encrypted Text (UTF-8):</label>
           <textarea
             id="encryptedPlainTextt"
             value={encryptedText}
             readOnly
-            rows={8}
+            rows={3}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="encryptedPlainText">Encrypted Text (Base64):</label>
+          <textarea
+            id="encryptedPlainTextt"
+            value={btoa(encryptedText)}
+            readOnly
+            rows={4}
           />
         </div>
         <div className="button-group">
