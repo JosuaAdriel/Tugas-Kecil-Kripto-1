@@ -48,7 +48,7 @@ const AffinePage = () => {
   const handleChangeA = (e) => {
     const inputValue = parseInt(e.target.value, 10);
     if (!isNaN(inputValue)) {
-      if (inputValue !== 0) {
+      if (inputValue > 0) {
         setA(inputValue);
       }
     } else {
@@ -58,7 +58,7 @@ const AffinePage = () => {
   const handleChangeB = (e) => {
     const inputValue = parseInt(e.target.value, 10);
     if (!isNaN(inputValue)) {
-      if (inputValue !== 0) {
+      if (inputValue > 0) {
         setB(inputValue);
       }
     } else {
@@ -77,7 +77,7 @@ const AffinePage = () => {
 
   const handleDecrementA = () => {
     setA((prevValue) => {
-      if (prevValue !== 1) {
+      if (prevValue > 1) {
         let newValue = prevValue - 1;
         while (newValue > 0 && !isCoprimeWith26(newValue)) {
           newValue--;
@@ -98,7 +98,7 @@ const AffinePage = () => {
 
   const handleDecrementB = () => {
     setB((prevValue) => {
-      if (prevValue !== 1) {
+      if (prevValue > 1) {
         let newValue = prevValue - 1;
 
         return newValue;
@@ -186,6 +186,7 @@ const AffinePage = () => {
             ciphertext={ciphertext}
             setCiphertext={setCiphertext}
             cipher={affine}
+            disabled={b <= 0 || a <= 0}
           />
         </Row>
       </Container>
