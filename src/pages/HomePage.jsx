@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <Container>
-        <Row className="header-box d-flex align-items-center">
+        <Row className="hero header-box d-flex align-items-center">
           <Col>
             <h1>Selamat Datang!</h1>
             <h1>Tugas MK II403</h1>
