@@ -4,27 +4,26 @@ import HeroImage2 from "../assets/img/HeroImage2.png";
 const HomePage = () => {
   return (
     <div className="homepage">
-      <header className="w-100 min-vh-100 d-flex align-items-center">
-        <Container>
-          <Row className="header-box d-flex align-items-center">
-            <Col>
-              <h1>Selamat Datang!</h1>
-              <h1>Tugas MK II403</h1>
-              <h1>Kriptografi dan Koding</h1>
-              <h3>Presented By:</h3>
-              <li style={{ listStyle: "none" }}>
-                18221065 Josua Adriel Sinabutar
-              </li>
-              <li style={{ listStyle: "none" }}>
-                18221162 Ceavin Rufus De Prayer Purba
-              </li>
-            </Col>
-            <Col className="conan-image">
-              <img src={HeroImage} alt="hero-img" />
-            </Col>
-          </Row>
-        </Container>
-      </header>
+      <Container>
+        <Row className="header-box d-flex align-items-center">
+          <Col>
+            <h1>Selamat Datang!</h1>
+            <h1>Tugas MK II403</h1>
+            <h1>Kriptografi dan Koding</h1>
+            <br />
+            <h3>Presented By:</h3>
+            <li style={{ listStyle: "none" }}>
+              18221065 Josua Adriel Sinabutar
+            </li>
+            <li style={{ listStyle: "none" }}>
+              18221162 Ceavin Rufus De Prayer Purba
+            </li>
+          </Col>
+          <Col className="conan-image">
+            <img src={HeroImage} alt="hero-img" />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

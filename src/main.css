@@ -65,7 +65,8 @@ body::-webkit-scrollbar {
 
 /*STYLE HEADER*/
 .homepage{
-    padding-top: 120px;
+    margin-top: 120px;
+    min-height: calc(100vh - 120px);
     background: #c6ffdd; 
     background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
     background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);

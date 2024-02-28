@@ -60,87 +60,84 @@ const ExtendedVignerePage = () => {
 
   return (
     <div className="homepage">
-      <header className="w-100 min-vh-100 d-flex align-items-center">
-        <Container>
-          <Row className="header-box d-flex align-items-center">
-            <Col className="col-spacing">
-              <div className="">
-                <h1>Extended Vigenere Cipher</h1>
-                <p>
-                  Metode menyandikan teks (256 karakter ASCII) dengan
-                  menggunakan deretan sandi Caesar berdasarkan huruf-huruf pada
-                  kata kunci.
-                </p>
-              </div>
-              <div className="input-group flex gap-2">
-                <label htmlFor="selectOption">Select input source:</label>
-                <select
-                  id="selectOption"
-                  value={selected}
-                  onChange={(e) => setSelected(e.target.value)}
-                  className="p-2"
-                >
-                  <option value="Text">Text</option>
-                  <option value="File">File</option>
-                </select>
-              </div>
-              <div className="reader">
-                {selected != "Text" && (
-                  <ReaderFile setFile={setFile} setFileName={setFileName} />
-                )}
-              </div>
-              <div className="input-group">
-                <label htmlFor="key">Key:</label>
-                <textarea
-                  id="key"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value)}
-                  rows={1} // Set the number of rows for the textarea
-                />
-              </div>
-            </Col>
-            {selected == "Text" ? (
-              <CipherTextComponent
-                plaintext={plaintext}
-                setPlaintext={setPlaintext}
-                ciphertext={ciphertext}
-                setCiphertext={setCiphertext}
-                cipher={extendedVigenere}
+      <Container>
+        <Row className="header-box d-flex align-items-center">
+          <Col className="col-spacing">
+            <div className="">
+              <h1>Extended Vigenere Cipher</h1>
+              <p>
+                Metode menyandikan teks (256 karakter ASCII) dengan menggunakan
+                deretan sandi Caesar berdasarkan huruf-huruf pada kata kunci.
+              </p>
+            </div>
+            <div className="input-group flex gap-2">
+              <label htmlFor="selectOption">Select input source:</label>
+              <select
+                id="selectOption"
+                value={selected}
+                onChange={(e) => setSelected(e.target.value)}
+                className="p-2"
+              >
+                <option value="Text">Text</option>
+                <option value="File">File</option>
+              </select>
+            </div>
+            <div className="reader">
+              {selected != "Text" && (
+                <ReaderFile setFile={setFile} setFileName={setFileName} />
+              )}
+            </div>
+            <div className="input-group">
+              <label htmlFor="key">Key:</label>
+              <textarea
+                id="key"
+                value={key}
+                onChange={(e) => setKey(e.target.value)}
+                rows={1} // Set the number of rows for the textarea
               />
-            ) : (
-              <>
-                <Col className="col-spacing">
-                  <Row className="">
-                    <div className="button-group">
-                      <button onClick={encryptFile}>Encrypt File</button>
-                      <p>or</p>
-                      <button onClick={decryptFile}>Decrypt File</button>
-                    </div>
-                  </Row>
-                  <Row className="file-result">
-                    {selected !== "Text" && encryptedFile && (
-                      <>
-                        <p>File Encrypted!</p>
-                        <button onClick={downloadEncryptedFile}>
-                          Download Encrypted File
-                        </button>
-                      </>
-                    )}
-                    {selected !== "Text" && decryptedFile && (
-                      <>
-                        <p>File Decrypted!</p>
-                        <button onClick={downloadDecryptedFile}>
-                          Download Decrypted File
-                        </button>
-                      </>
-                    )}
-                  </Row>
-                </Col>
-              </>
-            )}
-          </Row>
-        </Container>
-      </header>
+            </div>
+          </Col>
+          {selected == "Text" ? (
+            <CipherTextComponent
+              plaintext={plaintext}
+              setPlaintext={setPlaintext}
+              ciphertext={ciphertext}
+              setCiphertext={setCiphertext}
+              cipher={extendedVigenere}
+            />
+          ) : (
+            <>
+              <Col className="col-spacing">
+                <Row className="">
+                  <div className="button-group">
+                    <button onClick={encryptFile}>Encrypt File</button>
+                    <p>or</p>
+                    <button onClick={decryptFile}>Decrypt File</button>
+                  </div>
+                </Row>
+                <Row className="file-result">
+                  {selected !== "Text" && encryptedFile && (
+                    <>
+                      <p>File Encrypted!</p>
+                      <button onClick={downloadEncryptedFile}>
+                        Download Encrypted File
+                      </button>
+                    </>
+                  )}
+                  {selected !== "Text" && decryptedFile && (
+                    <>
+                      <p>File Decrypted!</p>
+                      <button onClick={downloadDecryptedFile}>
+                        Download Decrypted File
+                      </button>
+                    </>
+                  )}
+                </Row>
+              </Col>
+            </>
+          )}
+        </Row>
+      </Container>
     </div>
   );
 };
