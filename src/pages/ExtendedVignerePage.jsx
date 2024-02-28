@@ -36,7 +36,9 @@ const ExtendedVignerePage = () => {
     const a = document.createElement("a");
     a.href = url;
     a.download =
-      fileName.split(".")[0] + "_encrypted." + fileName.split(".")[1]; // Set desired file name here
+      fileName.split(".")[0] +
+      "_encrypted." +
+      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); // Set desired file name here
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -48,7 +50,9 @@ const ExtendedVignerePage = () => {
     const a = document.createElement("a");
     a.href = url;
     a.download =
-      fileName.split(".")[0] + "_decrypted." + fileName.split(".")[1]; // Set desired file name here
+      fileName.split(".")[0] +
+      "_decrypted." +
+      fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2); // Set desired file name here
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);

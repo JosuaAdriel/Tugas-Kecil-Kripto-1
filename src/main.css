@@ -127,7 +127,10 @@ body::-webkit-scrollbar {
     margin-bottom: 20px;
 }
 .file-result p{
-    margin-bottom: 0;
+    margin-bottom: 4px!important;
+}
+.button-group > p{
+    margin-bottom: 5px!important;
 }
 .download p{
     margin-bottom: 0;
