@@ -68,12 +68,13 @@ const ExtendedVignerePage = () => {
                   kata kunci.
                 </p>
               </div>
-              <div className="input-group">
+              <div className="input-group flex gap-2">
                 <label htmlFor="selectOption">Select input source:</label>
                 <select
                   id="selectOption"
                   value={selected}
                   onChange={(e) => setSelected(e.target.value)}
+                  className="p-2"
                 >
                   <option value="Text">Text</option>
                   <option value="File">File</option>

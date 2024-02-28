@@ -1,5 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import { useState } from "react";
+import { FaRegCopy } from "react-icons/fa";
+import { FaRegPaste } from "react-icons/fa6";
 
 function CipherTextComponent({
   plaintext,
@@ -49,7 +51,23 @@ function CipherTextComponent({
     <>
       <Col className="col-spacing">
         <div className="input-group">
-          <label htmlFor="plaintext">Plaintext:</label>
+          <div style={{ width: "100%" }} className="flex justify-between">
+            <label htmlFor="plaintext">Plaintext:</label>
+            <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
+              <FaRegCopy
+                style={{ cursor: "pointer" }}
+                onClick={() => navigator.clipboard.writeText(plaintext)}
+              />
+              <FaRegPaste
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  navigator.clipboard.readText().then((text) => {
+                    setPlaintext(text);
+                  })
+                }
+              />
+            </div>
+          </div>
           <textarea
             id="plaintext"
             value={plaintext}
@@ -58,7 +76,15 @@ function CipherTextComponent({
           />
         </div>
         <div className="input-group">
-          <label htmlFor="encryptedPlainTextt">Encrypted Text (UTF-8):</label>
+          <div style={{ width: "100%" }} className="flex justify-between">
+            <label htmlFor="encryptedPlainTextt">Encrypted Text (UTF-8):</label>
+            <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
+              <FaRegCopy
+                style={{ cursor: "pointer" }}
+                onClick={() => navigator.clipboard.writeText(encryptedText)}
+              />
+            </div>
+          </div>
           <textarea
             id="encryptedPlainTextt"
             value={encryptedText}
@@ -67,7 +93,17 @@ function CipherTextComponent({
           />
         </div>
         <div className="input-group">
-          <label htmlFor="encryptedPlainText">Encrypted Text (Base64):</label>
+          <div style={{ width: "100%" }} className="flex justify-between">
+            <label htmlFor="encryptedPlainText">Encrypted Text (Base64):</label>
+            <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
+              <FaRegCopy
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  navigator.clipboard.writeText(btoa(encryptedText))
+                }
+              />
+            </div>
+          </div>
           <textarea
             id="encryptedPlainTextt"
             value={btoa(encryptedText)}
@@ -89,7 +125,23 @@ function CipherTextComponent({
       </Col>
       <Col className="col-spacing">
         <div className="input-group">
-          <label htmlFor="ciphertext">Ciphertext:</label>
+          <div style={{ width: "100%" }} className="flex justify-between">
+            <label htmlFor="ciphertext">Ciphertext:</label>
+            <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
+              <FaRegCopy
+                style={{ cursor: "pointer" }}
+                onClick={() => navigator.clipboard.writeText(ciphertext)}
+              />
+              <FaRegPaste
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  navigator.clipboard.readText().then((text) => {
+                    setCiphertext(text);
+                  })
+                }
+              />
+            </div>
+          </div>
           <textarea
             id="ciphertext"
             value={ciphertext}
@@ -98,7 +150,15 @@ function CipherTextComponent({
           />
         </div>
         <div className="input-group">
-          <label htmlFor="decryptedText">Decrypted Ciphertext:</label>
+          <div style={{ width: "100%" }} className="flex justify-between">
+            <label htmlFor="decryptedText">Decrypted Ciphertext:</label>
+            <div style={{ marginRight: "4px", gap: "4px" }} className="flex">
+              <FaRegCopy
+                style={{ cursor: "pointer" }}
+                onClick={() => navigator.clipboard.writeText(decryptedText)}
+              />
+            </div>
+          </div>
           <textarea
             id="decryptedText"
             value={decryptedText}

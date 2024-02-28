@@ -13,21 +13,13 @@ const NavbarComponent = () => {
         <div className="d-flex flex-column align-items-center">
           <div>
             <Navbar.Brand className="fs-1 fw-bold" href="/">
-              Tugas II4031
-            </Navbar.Brand>
-          </div>
-          <div>
-            <Navbar.Brand className="fs-5" href="/">
-              By Josua and Ceavin
+              Crypther
             </Navbar.Brand>
           </div>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <NavLink className="nav-link" exact to="/">
-              Home
-            </NavLink>
             <NavDropdown
               className="nav-link1"
               title="Ciphers"
