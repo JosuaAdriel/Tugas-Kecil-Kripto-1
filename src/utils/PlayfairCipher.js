@@ -33,7 +33,10 @@ class PlayfairCipher {
   }
 
   encrypt(plainText) {
-    plainText = plainText.replace(/j/g, "i").toUpperCase().replace(/ /g, "");
+    plainText = plainText
+      .replace(/j/g, "i")
+      .toUpperCase()
+      .replace(/[^A-Z]/g, "");
     let cipherText = "";
 
     for (let i = 0; i < plainText.length; i += 2) {
