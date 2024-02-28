@@ -16,7 +16,6 @@
     position: fixed;
     height: 120px;
     padding: 0 60px;
-    width: 100%;
 }
 
 .navbar .nav-link{
@@ -40,6 +39,7 @@
 
 /*STYLE HEADER*/
 .homepage{
+    margin-top: 120px;
     background: #c6ffdd; 
     background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
     background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);

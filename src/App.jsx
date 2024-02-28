@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <NavbarComponent />
-      <div className="homepage">
+      <div className="">
         <Routes>
           <Route path="/" Component={HomePage} />
           <Route path="/vignere" Component={VignerePage} />

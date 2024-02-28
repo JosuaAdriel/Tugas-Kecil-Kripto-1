@@ -4,7 +4,12 @@ import { NavLink } from "react-router-dom";
 const NavbarComponent = () => {
   return (
     <div>
-      <Navbar expand="lg" fixed="top" className="custom-navbar">
+      <Navbar
+        style={{ backgroundColor: "#fff" }}
+        expand="lg"
+        fixed="top"
+        className="navbar"
+      >
         <div className="d-flex flex-column align-items-center">
           <div>
             <Navbar.Brand className="fs-1 fw-bold" href="/">
@@ -23,7 +28,12 @@ const NavbarComponent = () => {
             <NavLink className="nav-link" exact to="/">
               Home
             </NavLink>
-            <NavDropdown className="nav-link1" title="Ciphers" id="basic-nav-dropdown" align="end">
+            <NavDropdown
+              className="nav-link1"
+              title="Ciphers"
+              id="basic-nav-dropdown"
+              align="end"
+            >
               <NavDropdown.Item as={NavLink} to="/vignere">
                 Vigenere Cipher
               </NavDropdown.Item>
