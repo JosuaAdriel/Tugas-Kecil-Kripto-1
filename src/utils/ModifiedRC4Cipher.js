@@ -1,22 +1,13 @@
+import ExtendedVigenereCipher from "./ExtendedVigenereCipher";
+
 class ModifiedRC4Cipher {
   constructor(key) {
     this.key = key;
-  }
-
-  extendedVigenereEncrypt(plaintext, key) {
-    let encryptedText = "";
-    let keyLength = key.length;
-    for (let i = 0; i < plaintext.length; i++) {
-      let plaintextCharCode = plaintext.charCodeAt(i);
-      let keyCharCode = key.charCodeAt(i % keyLength);
-      let encryptedCharCode = (plaintextCharCode + keyCharCode) % 256;
-      encryptedText += String.fromCharCode(encryptedCharCode);
-    }
-    return encryptedText;
+    this.cipher = new ExtendedVigenereCipher(key);
   }
 
   KSA() {
-    let extendedKey = this.extendedVigenereEncrypt(this.key, this.key);
+    let extendedKey = this.cipher.encrypt(this.key);
     let S = [];
     for (let i = 0; i < 256; i++) {
       S[i] = i;
