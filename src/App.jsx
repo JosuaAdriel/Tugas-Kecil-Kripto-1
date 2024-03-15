@@ -7,6 +7,7 @@ import PlayfairPage from "./pages/PlayfairPage";
 import ProductPage from "./pages/ProductPage";
 import AffinePage from "./pages/AffinePage";
 import AutokeyVigenerePage from "./pages/AutokeyVigenerePage";
+import ModifiedRC4Page from "./pages/ModifiedRC4Page";
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/product" Component={ProductPage} />
         <Route path="/affine" Component={AffinePage} />
         <Route path="/autokey-vigenere" Component={AutokeyVigenerePage} />
+        <Route path="/modified-rc4" Component={ModifiedRC4Page} />
       </Routes>
     </div>
   );

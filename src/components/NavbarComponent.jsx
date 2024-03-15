@@ -44,6 +44,9 @@ const NavbarComponent = () => {
               <NavDropdown.Item as={NavLink} to="/autokey-vigenere">
                 Autokey Vigenere Cipher
               </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/modified-rc4">
+                Modified RC4 Cipher
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

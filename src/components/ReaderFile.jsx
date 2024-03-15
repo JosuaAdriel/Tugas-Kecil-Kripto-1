@@ -9,6 +9,7 @@ function ReaderFile({ setFile, setFileName }) {
 
     reader.onload = (event) => {
       const fileContent = new Uint8Array(event.target.result); // File content as Uint8Array
+      console.log(fileContent);
       setFile(fileContent);
     };
 
