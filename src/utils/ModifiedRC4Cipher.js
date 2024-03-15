@@ -46,10 +46,8 @@ class ModifiedRC4Cipher {
     let keyStream = this.PRGA(S, plaintext.length);
     let ciphertext = "";
     for (let i = 0; i < plaintext.length; i++) {
-      // XOR plaintext byte with keystream byte
       let plainCharCode = plaintext.charCodeAt(i);
       let encryptedByte = plainCharCode ^ keyStream[i];
-      // Convert encrypted byte to hexadecimal and pad with zeros
       let hex = encryptedByte.toString(16).padStart(2, "0");
       ciphertext += hex;
     }
@@ -61,12 +59,9 @@ class ModifiedRC4Cipher {
     let keyStream = this.PRGA(S, ciphertext.length / 2);
     let plaintext = "";
     for (let i = 0; i < ciphertext.length; i += 2) {
-      // Parse two hexadecimal characters to get encrypted byte
       let hexByte = ciphertext.substr(i, 2);
       let encryptedByte = parseInt(hexByte, 16);
-      // XOR encrypted byte with keystream byte
       let decryptedByte = encryptedByte ^ keyStream[i / 2];
-      // Convert decrypted byte to character
       plaintext += String.fromCharCode(decryptedByte);
     }
     return plaintext;
@@ -77,10 +72,8 @@ class ModifiedRC4Cipher {
     let keyStream = this.PRGA(S, file.length);
     let encryptedFile = new Uint8Array(file.length);
     for (let i = 0; i < file.length; i++) {
-      // XOR plaintext byte with keystream byte
       let plainCharCode = file[i];
       let encryptedByte = plainCharCode ^ keyStream[i];
-      // Convert encrypted byte to hexadecimal and pad with zeros
       encryptedFile[i] = encryptedByte;
     }
     return encryptedFile;
@@ -91,7 +84,6 @@ class ModifiedRC4Cipher {
     let keyStream = this.PRGA(S, file.length);
     let decryptedFile = new Uint8Array(file.length);
     for (let i = 0; i < file.length; i++) {
-      // XOR file byte with keystream byte
       let decryptedByte = file[i] ^ keyStream[i];
       decryptedFile[i] = decryptedByte;
     }

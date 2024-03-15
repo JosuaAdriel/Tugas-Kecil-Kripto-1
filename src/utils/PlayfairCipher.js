@@ -31,14 +31,14 @@ class PlayfairCipher {
 
   encrypt(plainText) {
     plainText = plainText
-      .replace(/j/g, "i")
       .toUpperCase()
+      .replace(/J/g, "I")
       .replace(/[^A-Z]/g, "");
     let cipherText = "";
 
     for (let i = 0; i < plainText.length; i += 2) {
       let char1 = plainText[i];
-      let char2 = plainText[i + 1] || "X"; 
+      let char2 = plainText[i + 1] || "X";
 
       if (char1 === char2) {
         char2 = "X";

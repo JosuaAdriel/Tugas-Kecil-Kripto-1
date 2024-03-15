@@ -21,6 +21,7 @@ function App() {
         <Route path="/affine" Component={AffinePage} />
         <Route path="/autokey-vigenere" Component={AutokeyVigenerePage} />
         <Route path="/rc4" Component={RC4Page} />
+        <Route path="/modified-rc4" Component={RC4Page} />
       </Routes>
     </div>
   );
